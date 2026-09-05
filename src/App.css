@@ -1,11 +1,22 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  background: #faf8f4;
+  /* matches the app's own background: no white flash on load, and no white
+     showing through the iOS overscroll bounce */
+  background: #0a0a0a;
   min-height: 100vh;
+  -webkit-text-size-adjust: 100%;
 }
 
 #root {
   width: 100%;
   min-height: 100vh;
+}
+
+/* Devanagari needs a real stack — Georgia has no such glyphs, so without this
+   each device silently substitutes something different. */
+.sanskrit {
+  font-family: "Noto Serif Devanagari", "Noto Sans Devanagari",
+               "Kohinoor Devanagari", "Devanagari Sangam MN", serif;
+  overflow-wrap: anywhere;
 }

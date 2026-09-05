@@ -86,15 +86,15 @@ const s = {
   vbtn:{background:"rgba(42,138,130,0.06)",border:"1px solid rgba(42,138,130,0.2)",borderRadius:8,padding:"7px 14px",fontSize:12,color:TEAL,cursor:"pointer",fontFamily:"Georgia,serif",marginBottom:8},
   vbox:{background:"rgba(42,138,130,0.04)",border:"1px solid rgba(42,138,130,0.15)",borderRadius:10,padding:"14px",marginBottom:12,borderLeft:`4px solid ${TEAL}`},
   qbox:{background:"#141414",border:"1px solid rgba(255,255,255,0.1)",borderRadius:14,padding:"18px",boxShadow:"0 2px 12px rgba(0,0,0,0.3)"},
-  qt:{fontSize:15,lineHeight:1.7,color:"#e8e0d0",marginBottom:16,fontWeight:"500"},
+  qt:{fontSize:"clamp(16px,4.2vw,17px)",lineHeight:1.65,color:"#e8e0d0",marginBottom:16,fontWeight:"500"},
   opts:{display:"flex",flexDirection:"column",gap:8},
-  opt:{background:"#1a1a1a",border:"1px solid rgba(255,255,255,0.1)",borderRadius:10,padding:"12px 14px",textAlign:"left",cursor:"pointer",color:"#d0c8b8",fontSize:13,display:"flex",gap:10,alignItems:"center",fontFamily:"Georgia,serif",transition:"all 0.15s"},
+  opt:{background:"#1a1a1a",border:"1px solid rgba(255,255,255,0.1)",borderRadius:10,padding:"13px 14px",textAlign:"left",cursor:"pointer",color:"#d0c8b8",fontSize:"clamp(15px,3.9vw,16px)",display:"flex",gap:10,alignItems:"center",fontFamily:"Georgia,serif",transition:"all 0.15s"},
   oc:{background:"rgba(42,138,80,0.15)",borderColor:"rgba(42,138,80,0.5)",color:"#4aea80"},
   ow:{background:"rgba(192,64,64,0.15)",borderColor:"rgba(192,64,64,0.4)",color:"#ff6060"},
   ol:{fontSize:11,width:24,height:24,minWidth:24,borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",fontWeight:"bold"},
   rbox:{marginTop:16,background:"linear-gradient(135deg, rgba(212,122,46,0.08), rgba(122,106,170,0.06))",border:`1px solid ${BO}`,borderRadius:12,padding:"16px"},
   rh:{fontSize:16,fontWeight:"bold",marginBottom:8},
-  exp:{fontSize:13,color:"#c0b8a0",lineHeight:1.7,marginBottom:10},
+  exp:{fontSize:"clamp(14px,3.7vw,15px)",color:"#c0b8a0",lineHeight:1.75,marginBottom:10},
   hi:{background:"#141414",border:"1px solid rgba(255,255,255,0.08)",borderRadius:9,padding:"10px 14px",display:"flex",flexDirection:"column",gap:3},
   groupBtn:{background:"#141414",border:"1px solid rgba(255,255,255,0.1)",borderRadius:12,padding:"10px 12px",cursor:"pointer",fontFamily:"Georgia,serif",display:"flex",flexDirection:"column",alignItems:"center",gap:3,transition:"all 0.2s",boxShadow:"0 1px 4px rgba(0,0,0,0.3)"},
   groupBtnOpen:{background:"rgba(184,134,11,0.1)",border:`1px solid ${BO}`},
@@ -183,7 +183,7 @@ export default function NarayaniyamGame() {
         <h1 style={{fontSize:36,fontWeight:"bold",textAlign:"center",color:G,margin:0,lineHeight:1.3}}>Śrīman Nārāyaṇīyam</h1>
         <p style={{fontSize:16,color:"#b8a888",textAlign:"center",margin:0,fontStyle:"italic"}}>The Quintessence of Śrīmad Bhāgavatam</p>
         <div style={{background:"rgba(212,122,46,0.06)",border:`1px solid ${BO}`,borderRadius:12,padding:"16px 20px",maxWidth:480,marginTop:8}}>
-          <p style={{fontSize:16,color:"#e8d8b0",lineHeight:2.2,margin:0,textAlign:"center",fontFamily:"serif"}}>
+          <p className="sanskrit" style={{fontSize:"clamp(16px,4.4vw,19px)",color:"#e8d8b0",lineHeight:2.2,margin:0,textAlign:"center"}}>
             सान्द्रानन्दावबोधात्मकमनुपमितं कालदेशावधिभ्यां<br/>
             निर्मुक्तं नित्यमुक्तं निगमशतसहस्रेण निर्भास्यमानम् ।<br/>
             अस्पष्टं दृष्टमात्रे पुनरुरुपुरुषार्थात्मकं ब्रह्म तत्त्वं<br/>
@@ -234,7 +234,7 @@ export default function NarayaniyamGame() {
         <div style={s.om}>ॐ</div>
         <h1 style={s.h1}>Śrīman Nārāyaṇīyam</h1>
         <p style={{...s.ptit,fontSize:18,marginBottom:2,marginTop:12}}>Choose a Daśakam Group</p>
-        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8,width:"100%"}}>
+        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(150px,1fr))",gap:8,width:"100%"}}>
           {groupRanges.map((r,ri) => {
             const [lo,hi] = r.split("-").map(Number);
             const group = ALL.filter(d => d.n >= lo && d.n <= hi);
@@ -304,7 +304,7 @@ export default function NarayaniyamGame() {
           <p style={{...s.ptit,fontSize:20,margin:0,color:tint}}>Dasakams {filter}</p>
           <span style={{fontSize:12,color:"#888"}}>{doneCount}/{group.length}</span>
         </div>
-        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
+        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(150px,1fr))",gap:10}}>
           {dasakamNums.map(n => {
             const qs = group.filter(d => d.n === n);
             const d0 = qs[0];
@@ -317,8 +317,8 @@ export default function NarayaniyamGame() {
                 <span style={{fontSize:13,color:"#f0ece4",fontWeight:"bold",flex:1}}>{d0.t}</span>
                 <span style={{fontSize:10,color:allDone?TEAL:"#666"}}>{allDone?"✓":qsDone+"/"+qs.length}</span>
               </div>
-              <p style={{fontSize:14,color:"#b8a888",lineHeight:1.8,margin:0,fontFamily:"serif",fontStyle:"italic",whiteSpace:"pre-line"}}>{vlines(d0.vs)}</p>
-              <p style={{fontSize:11,color:"#908878",lineHeight:1.5,margin:0}}>{d0.vt}</p>
+              <p className="sanskrit" style={{fontSize:"clamp(15px,4vw,17px)",color:"#b8a888",lineHeight:1.95,margin:0,whiteSpace:"pre-line"}}>{vlines(d0.vs)}</p>
+              <p style={{fontSize:"clamp(12px,3.2vw,13px)",color:"#908878",lineHeight:1.55,margin:0}}>{d0.vt}</p>
             </div>
             );
           })}
@@ -349,8 +349,8 @@ export default function NarayaniyamGame() {
             <span style={{fontSize:12,color:qsDone===qs.length?TEAL:"#888"}}>{qsDone}/{qs.length}</span>
           </div>
           {d0.bh&&<div style={{fontSize:11,color:VIOLET,fontStyle:"italic",marginBottom:10}}>{d0.bh}</div>}
-          <p style={{fontSize:16,color:"#c8b898",lineHeight:1.9,margin:"0 0 10px",fontFamily:"serif",fontStyle:"italic",whiteSpace:"pre-line"}}>{vlines(d0.vs)}</p>
-          <p style={{fontSize:13,color:"#a09080",lineHeight:1.7,margin:0}}>{d0.vt}</p>
+          <p className="sanskrit" style={{fontSize:"clamp(16px,4.3vw,19px)",color:"#c8b898",lineHeight:2.05,margin:"0 0 10px",whiteSpace:"pre-line"}}>{vlines(d0.vs)}</p>
+          <p style={{fontSize:"clamp(14px,3.7vw,15px)",color:"#a09080",lineHeight:1.7,margin:0}}>{d0.vt}</p>
         </div>
         <div style={{display:"flex",flexDirection:"column",gap:8}}>
           {qs.map(d => {
@@ -388,7 +388,7 @@ export default function NarayaniyamGame() {
           <h2 style={{fontSize:22,color:G,margin:"0 0 4px",fontWeight:"bold"}}>Dasakam 100 — Phala Shruti</h2>
           <p style={{fontSize:13,color:"#a09080",margin:0,fontStyle:"italic"}}>The Vision of Guruvāyūrappan — 11 Verses</p>
         </div>
-        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
+        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(150px,1fr))",gap:10}}>
           {DASAKAM_100.map(v => (
             <div key={v.v} style={{background:"#141414",border:`1px solid rgba(255,255,255,0.08)`,borderRadius:10,padding:"14px",borderLeft:`4px solid ${SAFFRON}`,cursor:"pointer",boxShadow:"0 1px 4px rgba(0,0,0,0.2)",display:"flex",flexDirection:"column",gap:6}} onClick={()=>{setSelVerse(v.v);setScreen("d100verse")}}>
               <div style={{display:"flex",alignItems:"center",gap:8}}>
@@ -420,7 +420,7 @@ export default function NarayaniyamGame() {
           <span style={{fontSize:12,color:SAFFRON,letterSpacing:2,textTransform:"uppercase"}}>Dasakam 100 — Verse {v.v} of 11</span>
         </div>
         <div style={{background:"#141414",border:`1px solid ${BO}`,borderRadius:14,padding:"20px",borderLeft:`4px solid ${SAFFRON}`,boxShadow:"0 2px 10px rgba(0,0,0,0.3)",marginBottom:16}}>
-          <p style={{fontSize:18,color:"#e8d8b0",lineHeight:2.2,margin:0,fontFamily:"serif",whiteSpace:"pre-line",textAlign:"center"}}>{v.sk}</p>
+          <p className="sanskrit" style={{fontSize:"clamp(17px,4.8vw,21px)",color:"#e8d8b0",lineHeight:2.2,margin:0,whiteSpace:"pre-line",textAlign:"center"}}>{v.sk}</p>
         </div>
         <div style={{background:"linear-gradient(135deg, rgba(212,122,46,0.08), rgba(122,106,170,0.05))",border:`1px solid ${BO}`,borderRadius:12,padding:"18px",marginBottom:16}}>
           <p style={{fontSize:12,color:SAFFRON,fontWeight:"bold",letterSpacing:1,marginBottom:8}}>MEANING</p>
@@ -458,8 +458,8 @@ export default function NarayaniyamGame() {
         {verse&&(
           <div style={s.vbox}>
             <div style={{fontSize:10,color:G,letterSpacing:1,marginBottom:7}}>✦ Key Verse {sel.kv}</div>
-            {sel.vs&&<p style={{fontSize:16,color:"#e0d0b0",lineHeight:2,margin:"0 0 8px",fontFamily:"serif",whiteSpace:"pre-line"}}>{vlines(sel.vs)}</p>}
-            <p style={{fontSize:13,color:"#c0b8a0",lineHeight:1.8,margin:0,fontStyle:"italic"}}>{sel.vt}</p>
+            {sel.vs&&<p className="sanskrit" style={{fontSize:"clamp(17px,4.6vw,20px)",color:"#e0d0b0",lineHeight:2.1,margin:"0 0 10px",whiteSpace:"pre-line"}}>{vlines(sel.vs)}</p>}
+            <p style={{fontSize:"clamp(14px,3.7vw,15px)",color:"#c0b8a0",lineHeight:1.8,margin:0,fontStyle:"italic"}}>{sel.vt}</p>
           </div>
         )}
         <div key={qKey} style={s.qbox}>
