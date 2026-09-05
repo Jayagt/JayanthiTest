@@ -1,9 +1,14 @@
 // Narayaneeyam Quiz Data — 3 questions per Dasakam, drawn from the Narayaneeyam text
-// Populated: Dasakams 1-10 (D1), 11-20 (D1B), 21-30 (D2), 31-40 (D2B)
-// bh = corresponding canto of the Bhagavata Purana
-// vt = main takeaway from the dasakam
+// Populated: Dasakams 1-40. Append new dasakams in order; the UI groups by `n`.
+//
+//   n   dasakam number        kv  key verse, e.g. "8.6"
+//   t   title                 vs  that verse in Devanagari
+//   bh  Bhagavata canto       vt  its translation
+//
+// A question may carry its own kv/vs/vt to override the dasakam's, for when it
+// asks about a different verse. See tools/fetch-verses.py for the source text.
 
-const D1 = [
+const DASAKAMS = [
 {n:1,t:"Glory of the Lord",kv:"1.1",
 vt:"That Brahman — of the nature of concentrated bliss and pure consciousness, incomparable, free of the limits of time and space, eternally liberated, illumined by a hundred thousand Vedic texts, unclear to mere sight yet the supreme goal of human life — that very Truth shines directly here in Guruvāyūr. What fortune for its people!",
 vs:"सान्द्रानन्दावबोधात्मकमनुपमितं कालदेशावधिभ्यां निर्मुक्तं नित्यमुक्तं निगमशतसहस्रेण निर्भास्यमानम् । अस्पष्टं दृष्टमात्रे पुनरुरुपुरुषार्थात्मकं ब्रह्म तत्वं तत्तावद्भाति साक्षाद् गुरुपवनपुरे हन्त भाग्यं जनानाम् ॥१॥",
@@ -83,10 +88,7 @@ qs:[
 {q:"In Dasakam 10, into whom did Brahma divide his own body to further creation?",o:["Marichi and Atri","Sanaka and Sanandana","Daksha and Asikni","Manu and Śatarūpā"],a:3,exp:"Brahmā divided himself into male and female principles, appearing as Svāyambhuva Manu and his consort Śatarūpā, from whom humanity descends."},
 {q:"Why did Brahma's mind-born sons Sanaka, Sanandana, Sanatana and Sanatkumara not assist in creation?",o:["They chose renunciation and refused to procreate","They were cursed by their father and lost the power","They were destroyed by the demons of that age","They departed at once for Vaikuṇṭha and never returned"],a:0,kv:"10.3",vs:"तावत् ससर्ज मनसा सनकं सनन्दं भूय: सनातनमुनिं च सनत्कुमारम् । ते सृष्टिकर्मणि तु तेन नियुज्यमानास्त्वत्पादभक्तिरसिका जगृहुर्न वाणीम् ॥३॥",vt:"Then he brought forth from his mind Sanaka and Sananda, and further the sage Sanātana and Sanatkumāra. But appointed by him to the work of creation, they — who relished only devotion at Your feet — would not accept his word.",exp:"The four Kumāras, devoted to nivṛtti (the path of withdrawal), declined Brahmā's command to procreate, choosing lifelong celibacy and contemplation instead."},
 {q:"Who arose from Brahma's anger when creation did not proceed as he wished?",o:["Indra","Rudra","Yama","Agni"],a:1,kv:"10.4",vs:"तावत् प्रकोपमुदितं प्रतिरुन्धतोऽस्य भ्रूमध्यतोऽजनि मृडो भवदेकदेश: । नामानि मे कुरु पदानि च हा विरिञ्चेत्यादौ रुरोद किल तेन स रुद्रनामा ॥४॥",vt:"Then, as he checked the anger that had risen in him, Mṛḍa was born from the middle of his brow — a portion of Yourself. 'Give me names, and stations too, O Viriñca!' Thus he wailed at the outset, and by that he became known as Rudra.",exp:"Frustrated at the Kumāras' refusal, Brahmā's anger took form as Rudra, who was then instructed to create — but produced fierce beings and was asked to perform penance instead."}
-]}
-];
-
-const D1B = [
+]},
 {n:11,t:"Prelude to the First Incarnation",kv:"11.5",
 vt:"As creation flourished, the divine sages Sanaka and his brothers came to Vaikuṇṭha to behold the Lord — O Lord of Guruvāyūr.",
 vs:"क्रमेण सर्गे परिवर्धमाने कदापि दिव्याः सनकादयस्ते । भवद्विलोकाय विकुण्ठलोकं प्रपेदिरे मारुतमन्दिरेश ॥",
@@ -166,9 +168,7 @@ qs:[
 {q:"In what circumstance did King Nābhi behold the Lord?",o:["In a dream on the night before the rite","In the midst of the sacrifice he was performing","While wandering alone in the deep forest","At the very moment of his own death"],a:1,exp:"'Iṣṭi-madhye' — in the very middle of the rite. And the verse is careful about his motive: 'tavaiva tuṣṭyai', he performed it for the Lord's satisfaction alone, not to obtain anything."},
 {q:"What boon did the Lord grant King Nābhi?",o:["Sovereignty over all the continents","Freedom from rebirth","That He would be born as Nābhi's son","A thousand years of life"],a:2,exp:"The Lord, pleased with the disinterested worship, promised to incarnate as his son — and was born to Nābhi and Merudevī as Ṛṣabhadeva."},
 {q:"After whom is Bhārata-varṣa named, according to this dasakam?",o:["Ṛṣabha himself, the avatāra of that age","King Nābhi, who first beheld the Lord","Priyavrata, ancestor of the whole line","Bharata, the eldest of Ṛṣabha's hundred sons"],a:3,exp:"Ṛṣabhadeva instructed his hundred sons, gave the kingdom to the eldest, Bharata, and took to the life of an avadhūta. It is from that Bharata that this land takes its name."}
-]}
-];
-const D2 = [
+]},
 {n:21,t:"Worship in Different Continents",kv:"21.1",
 vt:"The poet seeks refuge in the Lord who resides as Saṅkarṣaṇa in the Ilāvṛta region, worshipped by Śiva with sacred hymns.",
 vs:"मध्योद्भवे भुव इलावृतनाम्नि वर्षे गौरीप्रधानवनिताजनमात्रभाजि। शर्वेण मन्त्रनुतिभि: समुपास्यमानं सङ्कर्षणात्मकमधीश्वर संश्रये त्वाम् ॥१॥",
@@ -248,9 +248,7 @@ qs:[
 {q:"According to the opening verse of Dasakam 30, how did Bali return to power after being slain by Indra?",o:["He was born again as another demon in the next age","Brahmā granted him a boon of complete immortality","He had never in truth been killed by Indra at all","Śukrācārya revived him, and sacrifice increased his might"],a:3,exp:"'Śukreṇa jīvita-tanuḥ kratu-vardhitoṣmā' — brought back to life by Śukrācārya and his power swelled by sacrificial rites, Bali conquered the three worlds while the gods hid in fear."},
 {q:"What did Aditi do on the advice of her husband Kaśyapa, to relieve the gods' distress?",o:["She appealed directly to Bali","She performed the Payovrata in worship of the Lord","She sent the gods to Brahmā","She undertook a fast unto death"],a:0,exp:"Grieving for her sons driven from heaven, Aditi was instructed by Kaśyapa in the Payovrata — a vow of worship sustained on milk — and the Lord, pleased, promised to be born as her own son."},
 {q:"How does Dasakam 30 describe Vamana as He set out for Bali's sacrifice?",o:["As a mighty warrior clad in full armour and arms","As a radiant dwarf brahmacārin with staff and deerskin","As an aged ascetic worn thin by long austerity","As a king arriving in his full royal procession"],a:1,exp:"The Lord appeared as a short-statured brahmacārin whose brilliance nonetheless dimmed the assembly, bearing the umbrella, staff, water-pot and deerskin of a student, and walked to the sacrificial ground of Bali."}
-]}
-];
-const D2B = [
+]},
 {n:31,t:"Vamana Blessing Bali",kv:"31.1",bh:"Bhāgavata VIII.19–23",
 vt:"Delighted at the sight of Your radiant form, the Asura worshipped You in every way, O Unconquered One, and folding his hands said: what do you wish from me? Speak, O son of a brāhmaṇa — wealth, food, a dwelling, or the earth itself, I shall give it all.",
 vs:"प्रीत्या दैत्यस्तव तनुमहःप्रेक्षणात् सर्वथाऽपि त्वामाराध्यन्नजित रचयन्नञ्जलिं सञ्जगाद । मत्तः किं ते समभिलषितं विप्रसूनो वद त्वं वित्तं भक्तं भवनमवनीं वाऽपि सर्वं प्रदास्ये ॥",
@@ -333,4 +331,4 @@ qs:[
 ]}
 ];
 
-export { D1, D1B, D2, D2B };
+export { DASAKAMS };

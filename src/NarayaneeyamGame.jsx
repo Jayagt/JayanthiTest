@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { D1, D1B, D2, D2B } from "./data/dasakams.js";
+import { DASAKAMS } from "./data/dasakams.js";
 import guruvayurImg from "./guruvayur-krishna.jpg";
 
 // ── DATA ──────────────────────────────────────────────────────────────────────
@@ -8,7 +8,7 @@ const vlines = t => (t || "")
   .replace(/([।॥])(?!\s*[०-९0-9]+\s*॥)\s*/g, "$1\n")   // not inside a verse number like ॥१॥
   .trim();
 
-const ALL = [...D1, ...D1B, ...D2, ...D2B].flatMap(d =>
+const ALL = DASAKAMS.flatMap(d =>
   (d.qs || []).map((q, qi) => ({ ...d, ...q, qid: `${d.n}-${qi}`, qs: undefined }))
 );
 
