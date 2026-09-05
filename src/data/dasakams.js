@@ -4,68 +4,68 @@
 
 const D1 = [
 {n:1,t:"Glory of the Lord",kv:"1.1",
-vt:"The Supreme Brahman — dense concentrated Bliss and Pure Consciousness, beyond time and space — manifests visibly at Guruvāyūr. What fortune for all seekers!",
-vs:"सान्द्रानन्दावबोधात्मकमनुपमितं कालदेशावधिभ्यां निर्मुक्तं नित्यमुक",
+vt:"That Brahman — of the nature of concentrated bliss and pure consciousness, incomparable, free of the limits of time and space, eternally liberated, illumined by a hundred thousand Vedic texts, unclear to mere sight yet the supreme goal of human life — that very Truth shines directly here in Guruvāyūr. What fortune for its people!",
+vs:"सान्द्रानन्दावबोधात्मकमनुपमितं कालदेशावधिभ्यां निर्मुक्तं नित्यमुक्तं निगमशतसहस्रेण निर्भास्यमानम् । अस्पष्टं दृष्टमात्रे पुनरुरुपुरुषार्थात्मकं ब्रह्म तत्वं तत्तावद्भाति साक्षाद् गुरुपवनपुरे हन्त भाग्यं जनानाम् ॥",
 qs:[
-{q:"What does Bhattathiri compare the Lord at Guruvayur to?",o:["The Parijata wish-fulfilling tree","The Ganga river","Mount Meru","The Sudarshana chakra"],a:0,exp:"Bhattathiri calls Guruvayurappan the wish-fulfilling tree of blessings."},
-{q:"According to Dasakam 1, what quality of the Lord at Guruvayur makes His presence uniquely purifying?",o:["His ancient age","His pure Sattva nature, untouched by Rajas and Tamas","His location near the sea","His hidden form"],a:1,exp:"The Lord's Sattva nature makes Him uniquely pure and purifying."},
-{q:"In Dasakam 1, Bhattathiri says the Lord grants boons even to whom?",o:["Only to brahmins","Only to those who perform elaborate rituals","Those who have not even asked — simply by bowing","Only to his devotees"],a:2,exp:"The Lord grants boons even to those who simply bow, without asking."}
+{q:"With what word does Bhattathiri open the Narayaneeyam, describing the nature of Brahman?",o:["Sāndrānanda — concentrated bliss","Nārāyaṇa","Oṁkāra","Vāsudeva"],a:0,exp:"The poem begins 'sāndrānandāvabodhātmakam' — of the nature of dense, concentrated bliss and pure awareness. Bhattathiri opens not with a name or an invocation but with a definition of the Absolute."},
+{q:"From which two limits does the opening verse declare Brahman to be free?",o:["Birth and death","Time and space","Merit and sin","Name and form"],a:1,exp:"'Kāla-deśāvadhibhyāṁ nirmuktam' — released from the boundaries of both time and place. The whole force of the verse is that this unbounded Reality is nonetheless standing in one particular temple."},
+{q:"What is the astonishing claim the first verse makes about Guruvāyūr?",o:["That the temple is the oldest in the land","That only the pure of heart may enter","That the formless Brahman is visible there directly, 'sākṣāt'","That Brahmā himself installed the idol"],a:2,exp:"'Tat tāvad bhāti sākṣād gurupavanapure' — that very Brahman shines there in person. Bhattathiri ends with 'hanta bhāgyaṁ janānām' — what great fortune of the people! — and that wonder sets the tone for all hundred dasakams."}
 ]},
 {n:2,t:"Formful Aspect of the Lord",kv:"2.1",
-vt:"The Lord's form — crown rivalling the sun, merciful eyes, sweet smile, Kaustubha gem on His chest, adorned with Vanamālā and Śrīvatsa — is meditated upon by the blessed.",
-vs:"सूर्यस्पर्धिकिरीटमूर्ध्वतिलकप्रोद्भासिफालान्तरं कारुण्याकुलनेत्र",
+vt:"I worship Your form: the crown rivalling the sun, the brow bright with tilaka, eyes brimming with compassion, a tender smile, shapely nostrils, a pair of makara earrings glinting on the cheeks, the Kaustubha blazing at the throat — resplendent with forest garland, necklaces and the Śrīvatsa.",
+vs:"सूर्यस्पर्धिकिरीटमूर्ध्वतिलकप्रोद्भासिफालान्तरं कारुण्याकुलनेत्रमार्द्रहसितोल्लासं सुनासापुटम् । गण्डोद्यन्मकराभकुण्डलयुगं कण्ठोज्वलत्कौस्तुभं त्वद्रूपं वनमाल्यहारपटलश्रीवत्सदीप्रं भजे ॥",
 qs:[
-{q:"What gem from the churning of the ocean adorns the Lord's chest?",o:["Syamantaka","Chintamani","Padmaraga","Kaustubha"],a:3,exp:"The Kaustubha gem, which emerged during the Samudra Manthan, adorns the Lord's chest."},
-{q:"According to Dasakam 2, the Lord's form is described as being free from what two limitations?",o:["Time and space","Birth and death","Hunger and thirst","Sin and merit"],a:0,exp:"Bhattathiri describes the Lord as beyond time and space."},
-{q:"What color is the Lord's form described as in Dasakam 2?",o:["Golden like the sun","Dark as a rain cloud","White like the moon","Red like the dawn"],a:1,exp:"The Lord is described as Shyamala (dark) like a rain cloud."}
+{q:"In what order does Dasakam 2 describe the Lord's form?",o:["From the feet upward","Beginning at the heart","In no fixed order","From the crown downward"],a:3,exp:"Bhattathiri follows the keśādi-pādānta method — starting at the crown that rivals the sun and moving down through brow, eyes, smile, throat and chest. Dasakam 2 covers the upper body; the description continues downward through the dasakam."},
+{q:"What shape are the Lord's earrings said to have?",o:["Shaped like the makara, a sea-creature","Lotus-shaped","Plain rings of gold","Shaped like conches"],a:0,exp:"'Gaṇḍodyan-makarābha-kuṇḍala-yugam' — the pair of makara-shaped earrings catching the light on His cheeks. The makara-kuṇḍala is one of the fixed marks of Viṣṇu's iconography."},
+{q:"Which gem does the verse place blazing at the Lord's throat?",o:["Syamantaka","Kaustubha","Cintāmaṇi","Padmarāga"],a:1,exp:"'Kaṇṭhojjvalat-kaustubham' — the Kaustubha, which rose from the churning of the ocean, shining at His throat. Beside it the verse names the vanamālā, the strands of necklaces, and the Śrīvatsa mark."}
 ]},
 {n:3,t:"Suppliant Devotee",kv:"3.10",
-vt:"Until Your compassion descends, I shall remain at Your feet, spending my days in prostration, praise, and worship to the best of my ability.",
-vs:"किमुक्तैर्भूयोभिस्तव हि करुणा यावदुदियादहं तावद्देव प्रहितविविधार्थ",
+vt:"What use in saying more? Until Your compassion arises, O Lord, I shall pass my days at the feet set before me — openly, to the best of my strength, offering prostration, praise and service, whatever my many afflictions make me cry out.",
+vs:"किमुक्तैर्भूयोभिस्तव हि करुणा यावदुदियादहं तावद्देव प्रहितविविधार्तप्रलपितः । पुरः क्लृप्ते पादे वरद तव नेष्यामि दिवसान्यथाशक्ति व्यक्तं नतिनुतिनिषेवा विरचयन् ॥",
 qs:[
-{q:"Bhattathiri composed Narayaneeyam while suffering from what ailment?",o:["Blindness","Deafness","Paralysis (rheumatism)","Fever"],a:2,exp:"Melapathur Narayana Bhattathiri was afflicted with severe paralysis (rheumatism)."},
-{q:"How did Bhattathiri acquire his disease according to tradition?",o:["From a curse","From bathing in cold water","It was a test from the Lord","He took on his guru Achyuta Pisharadi's paralysis out of compassion"],a:3,exp:"Bhattathiri took on his guru's paralysis out of compassion."},
-{q:"What does Bhattathiri ask for in the famous closing verse of Dasakam 3?",o:["Health, long life, and happiness to continue singing the Lord's glories","Wealth and prosperity","Liberation from rebirth","Supernatural powers"],a:0,exp:"Bhattathiri asks for health and life to continue worshipping the Lord."}
+{q:"How does the closing verse of Dasakam 3 begin?",o:["With a fresh list of requests","With a vow of silence","By dismissing further words — 'kim uktair bhūyobhiḥ'","By naming the Lord's avatāras"],a:2,exp:"'What use in saying more?' Having pleaded through the dasakam, Bhattathiri stops arguing and simply resolves to wait — a turn from petition to patient service that gives the verse its weight."},
+{q:"What three things does he vow to go on offering until the Lord's compassion comes?",o:["Fasting, silence and pilgrimage","Study, sacrifice and charity","Wealth, family and reputation","Prostration, praise and service"],a:3,exp:"'Nati-nuti-niṣevā viracayan' — making obeisance, singing praise, and rendering service, 'yathāśakti', to the extent of his strength. Notably he does not promise to stop complaining, only to keep serving while he does."},
+{q:"What does Bhattathiri ask for in preference to liberation throughout Dasakam 3?",o:["Devotion itself, and the health to continue it","Freedom from rebirth","Fame as a poet","Wealth for his family"],a:0,exp:"The dasakam is the poem's statement of purpose: he wants bhakti, not mokṣa, and enough bodily soundness to keep worshipping. The request for health is not incidental — the whole Narayaneeyam is a prayer offered from illness."}
 ]},
 {n:4,t:"Progress of the Spiritual Aspirant",kv:"4.1",
-vt:"Grant me sufficient health so that I may worship You through the eight-limbed yoga. All paths of yoga ultimately lead to the Lord.",
-vs:"कल्यतां मम कुरुष्व तावतीं कल्यते भवदुपासनं यया ।",
+vt:"Grant me that much soundness of body by which worship of You becomes possible; that, growing strong through the clearly-set practice of the eightfold yoga, I may swiftly attain Your favour.",
+vs:"कल्यतां मम कुरुष्व तावतीं कल्यते भवदुपासनं यया । स्पष्टमष्टविधयोगचर्यया पुष्टयाशु तव तुष्टिमाप्नुयाम् ॥",
 qs:[
-{q:"How many limbs does Ashtanga Yoga have?",o:["Four","Eight","Six","Ten"],a:1,exp:"Ashtanga Yoga has eight limbs: Yama, Niyama, Asana, Pranayama, Pratyahara, Dharana, Dhyana, and Samadhi."},
-{q:"According to Dasakam 4, what is the final goal of all yoga practice?",o:["Physical fitness","Supernatural powers (siddhis)","Devotion to and realization of the Lord","Control over the elements"],a:2,exp:"The ultimate goal of yoga is devotion to and realization of the Lord."},
-{q:"What is the eighth and final limb of Ashtanga Yoga described in Dasakam 4?",o:["Dharana (concentration)","Dhyana (meditation)","Pratyahara (sense withdrawal)","Samadhi (complete absorption)"],a:3,exp:"Samadhi is the eighth and final limb where the mind merges with the object of meditation."}
+{q:"What exactly does Bhattathiri ask for in the opening verse of Dasakam 4?",o:["Wealth enough to endow a temple","Only as much health as worship requires","Complete freedom from all disease","A long life of a hundred years"],a:1,exp:"'Kalyatāṁ mama kuruṣva tāvatīm' — that much soundness, and no more: precisely the measure by which 'bhavad-upāsanam' becomes possible. He asks for health as a means to worship, never as an end."},
+{q:"Which discipline does Dasakam 4 then set out in detail?",o:["The four Vedas","The rituals of temple worship","The eightfold yoga, from yama to samādhi","The sixteen saṁskāras"],a:2,exp:"'Aṣṭa-vidha-yoga-caryayā' — the eight-limbed path: yama, niyama, āsana, prāṇāyāma, pratyāhāra, dhāraṇā, dhyāna and samādhi, which the dasakam traces through the rising of the vital force to the crown."},
+{q:"How does Bhattathiri conclude the dasakam after describing the yogic path?",o:["He declares he has mastered it","He urges others to abandon it","He claims it is the only path","He admits he is unequal to it and asks instead for devotion"],a:3,exp:"Having laid out the arduous discipline, he confesses that a sick and weak man cannot walk it, and falls back on bhakti — the recurring movement of the poem: the harder path is described honestly, then set aside for the Lord's grace."}
 ]},
 {n:5,t:"Cosmic Evolution",kv:"5.10",
-vt:"The Golden Egg remained in cosmic waters for a thousand years. Breaking it open, the Lord formed the fourteen worlds as the Virāṭ — manifesting as all beings.",
+vt:"That cosmic egg indeed lay in the previously created waters for a thousand years.",
 vs:"अण्डं तत्खलु पूर्वसृष्टसलिलेऽतिष्ठत् सहस्रं समा: ॥",
 qs:[
-{q:"What metaphor describes how the universe exists within the Lord?",o:["A city reflected in a mirror","A dream within sleep","A wave in the ocean","A flame in the wind"],a:0,exp:"The universe exists within the Lord like a dream within sleep."},
-{q:"What philosophical concept does the mirror metaphor in Dasakam 5 illustrate?",o:["Karma","Maya — the apparent reality of the world that has no independent existence apart from God","Dharma","Samsara"],a:1,exp:"Maya is the illusory nature of the world, like a reflection in a mirror."},
-{q:"According to Dasakam 5, who is the Virat Purusha?",o:["A separate deity of creation","The first human being","The cosmic form of the Lord — the entire universe is His body","An angelic being"],a:2,exp:"The Virat Purusha is the cosmic form of the Lord encompassing all existence."}
+{q:"According to this verse, how long did the cosmic egg lie in the waters?",o:["A thousand years","A single night of Brahmā","Twelve years","Until the next kalpa"],a:0,exp:"'Sahasraṁ samāḥ' — a thousand years the aṇḍa rested in the waters brought forth before it, before the Lord entered it and split it open to form the worlds."},
+{q:"What is the first evolute to arise when the guṇas of prakṛti are stirred?",o:["The five gross elements","Mahat, the cosmic intelligence","The mind and senses","Space"],a:1,exp:"Dasakam 5 follows the Sāṅkhya sequence: from disturbed prakṛti comes mahat, from mahat ahaṅkāra, and from the threefold ahaṅkāra the mind and deities, the senses, and the subtle then gross elements."},
+{q:"What does the dasakam identify as the cause that sets this whole unfolding in motion?",o:["Chance","The will of Brahmā","Time, as the Lord's own power, agitating the guṇas","The desire of the elements"],a:2,exp:"The equilibrium of the guṇas is disturbed by kāla — time — which Bhattathiri treats not as an independent force but as the Lord's own śakti. Creation is therefore never mechanical; it is His act throughout."}
 ]},
 {n:6,t:"Cosmos as Form of the Lord",kv:"6.1",
-vt:"Pātāla is the Lord's foot-sole, Rasātala His upper feet, Mahātala His ankles — the fourteen worlds manifest through His cosmic form.",
+vt:"Thus, of You who have become the fourteen worlds, they call Pātāla the sole of Your foot, O Lord.",
 vs:"एवं चतुर्दशजगन्मयतां गतस्य पातालमीश तव पादतलं वदन्ति ॥",
 qs:[
-{q:"In the Virat Swarupa description, what are identified as the Lord's two eyes?",o:["Stars and planets","Fire and water","Sky and earth","Sun and Moon"],a:3,exp:"In the Virat Purusha description, the Sun and Moon are the Lord's eyes."},
-{q:"In the Virat Swarupa, what part of the Lord's body is the earth?",o:["His feet","His head","His navel","His chest"],a:0,exp:"The earth is described as the Lord's feet (pādau)."},
-{q:"What is the spiritual purpose of describing the Virat Swarupa in Dasakam 6?",o:["To frighten the listener into submission","To show that the entire physical universe is a manifestation of God, removing the illusion of separateness","To glorify physical creation alone","To teach astronomy"],a:1,exp:"The Virat Swarupa reveals that all existence is the Lord's body, dissolving the sense of separation."}
+{q:"In the cosmic form of Dasakam 6, which world is the sole of the Lord's foot?",o:["Bhūloka","Satyaloka","Svarga","Pātāla"],a:3,exp:"'Pātālam īśa tava pādatalaṁ vadanti' — the lowest of the worlds is the sole of the foot, and the dasakam then climbs the body upward through the remaining thirteen."},
+{q:"Which realm is identified as the head of the cosmic form?",o:["Satyaloka, the highest world","Maharloka","Bhuvarloka","Janaloka"],a:0,exp:"The mapping runs from Pātāla at the sole to Satyaloka, Brahmā's own realm, at the head — so that the entire vertical structure of the cosmos is one body."},
+{q:"What is the purpose of meditating on this cosmic form?",o:["To learn the geography of the worlds","To dissolve the sense of separateness by seeing all existence as the Lord's body","To gain power over the elements","To prepare for ritual sacrifice"],a:1,exp:"The Virāṭ meditation is offered as a discipline for those who cannot yet hold the subtle in mind: begin where the eye already falls. If every region of the universe is His limb, there is nowhere the worshipper stands outside Him."}
 ]},
 {n:7,t:"Brahma Commanded to Create",kv:"7.4",
-vt:"In Vaikuṇṭha, Māyā never operates, sorrow and anger are absent — it radiates supreme bliss, existing beyond the fourteen worlds.",
-vs:"माया यत्र कदापि नो विकुरुते भाते जगद्भ्यो बहिः शोकक्रोधविमोहसाध्वसमुख",
+vt:"There, where Māyā never works her changes, and where sorrow, anger, delusion, fear and the rest have gone far away — that realm shines beyond the worlds.",
+vs:"माया यत्र कदापि नो विकुरुते भाते जगद्भ्यो बहिः शोकक्रोधविमोहसाध्वसमुखा भावास्तु दूरं गताः ॥",
 qs:[
-{q:"From where does the lotus sprout that contains Brahma?",o:["From the cosmic ocean floor","From Shiva's third eye","From Vishnu's navel","From Saraswati's hand"],a:2,exp:"A lotus sprouts from Vishnu's navel, containing Brahma."},
-{q:"What is the name of the serpent that serves as Vishnu's bed on the cosmic ocean?",o:["Vasuki","Takshaka","Kaliya","Ananta (Adishesha)"],a:3,exp:"Ananta, also called Adishesha, is the thousand-headed serpent on which Vishnu rests."},
-{q:"According to Dasakam 7, what is the order of creation?",o:["From the Lord's will arise Mahat (cosmic intelligence), then Ahamkara, then the elements","Earth first, then water, then sky","From gross to subtle elements","All at once, with no sequence"],a:0,exp:"Creation proceeds from cosmic intelligence to ego to the five elements."}
+{q:"What does this verse say about Māyā in Vaikuṇṭha?",o:["She serves the Lord there in person","She rules over the lower regions of it","She never works her changes there at all","She appears only to the unqualified"],a:2,exp:"'Māyā yatra kadāpi no vikurute' — not that Māyā is absent, but that she never modifies anything there. Vaikuṇṭha is defined by the absence of transformation, which is the absence of the very mechanism of bondage."},
+{q:"Which states does the verse name as having 'gone far away' from that realm?",o:["Hunger, thirst and sleep","Birth, old age and death","Pride, greed and envy","Sorrow, anger, delusion and fear"],a:3,exp:"'Śoka-krodha-vimoha-sādhvasa-mukhāḥ' — grief, anger, bewilderment, dread and the like. Bhattathiri defines Vaikuṇṭha by subtraction, naming what cannot occur there rather than describing its splendours."},
+{q:"Where is Vaikuṇṭha located, according to the verse?",o:["Beyond the worlds — 'jagadbhyo bahiḥ'","At the summit of Mount Meru","At the centre of the cosmic egg","In the heart of every being alone"],a:0,exp:"It shines outside and beyond the fourteen worlds altogether — not the highest storey of the created cosmos but wholly other than it, which is why the laws governing the worlds have no purchase there."}
 ]},
 {n:8,t:"Dawn of Creation",kv:"8.10",
-vt:"From the Lord's navel emerged a luminous lotus bud containing all dissolved worlds. In it, the lotus-born Brahmā appeared with all Vedas self-manifested within him.",
-vs:"तवैव वेषे फणिराजि शेषे जलैकशेषे भुवने स्म शेषे। आनन्दसान्द्रानुभवस्वर",
+vt:"In Your own form You lay upon Śeṣa, king of serpents, in a world where the waters alone remained — Yourself of the nature of dense bliss, Your being sealed in the sleep of Your own yoga.",
+vs:"तवैव वेषे फणिराजि शेषे जलैकशेषे भुवने स्म शेषे । आनन्दसान्द्रानुभवस्वरूपः स्वयोगनिद्रापरिमुद्रितात्मा ॥",
 qs:[
-{q:"What did Brahma do before he could begin creating?",o:["He performed 1000 years of penance","He dove into the lotus stalk to find its source but failed","He consulted the four Vedas","He sought guidance from Shiva"],a:1,exp:"Brahma dove deep into the lotus stalk seeking its source, representing the search for ultimate truth."},
-{q:"What word did Brahma hear from the cosmic waters that inspired his penance?",o:["Om","Hari","Tapa (penance)","Shruti"],a:2,exp:"Brahma heard the imperative to perform tapas — 'Tapa'."},
-{q:"What does Brahma's failure to find the root of the lotus teach?",o:["That the lotus has no root","That creation is eternal with no beginning","That the Vedas are false","That intellectual seeking alone cannot reach God — divine grace and self-revelation are necessary"],a:3,exp:"Brahma's futile search teaches that divine truth cannot be grasped by intellect alone—it requires grace."}
+{q:"What poetic feature makes this verse famous?",o:["It contains no verbs","The syllable 'śeṣe' recurs in each line with a different meaning","It can be read backwards","It uses only long vowels"],a:1,exp:"A śleṣa: 'phaṇi-rāji-śeṣe' (on Śeṣa the serpent), 'jalaika-śeṣe' (where water alone remained), 'bhuvane sma śeṣe' (You lay). One sound, three senses — Bhattathiri the poet at play in the middle of a cosmological account."},
+{q:"What is the state the Lord is described as resting in?",o:["Ordinary sleep after exertion","Meditation on a higher deity","Yoga-nidrā — His own mystic sleep","Unconsciousness caused by the dissolution"],a:2,exp:"'Sva-yoga-nidrā-parimudritātmā' — His being sealed by His own yogic sleep. It is not rest from tiredness but a deliberate withdrawal in which the worlds lie latent within Him."},
+{q:"What appeared from the Lord's navel as this sleep ended?",o:["A flame that became the sun","The four Vedas in visible form","A stream that became the Gaṅgā","A lotus bud holding the dissolved worlds, in which Brahmā appeared"],a:3,exp:"From the navel rose a luminous lotus containing all the worlds that had been withdrawn, and within it the lotus-born Brahmā — who could not find its root, the search that opens the next dasakam."}
 ]},
 {n:9,t:"Brahma's Meditation and Vision",kv:"9.5",
 vt:"Through a hundred divine years of unwavering meditation, enlightenment dawned on Brahmā. His inner vision beheld the Lord's wondrous form resting upon Ādiśeṣa.",
