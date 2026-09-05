@@ -22,7 +22,8 @@ Also handled here:
   - a pada ending in "-" continues into the next line without a space
   - the site writes visarga as an ASCII colon; normalised to U+0903
   - verse markers are kept tight as ॥N॥ so the app's line-splitter does not
-    strand the number on a line of its own
+    strand the number on a line of its own, and a single danda before the
+    number is accepted (verse 12.3 is written "।३॥" on the site)
 """
 
 import argparse, html, json, re, sys, urllib.request
@@ -39,7 +40,8 @@ def fetch(n):
 
 def tidy(text):
     text = re.sub(r'(?<=' + DEVANAGARI + r'):', 'ः', text)          # colon -> visarga
-    text = re.sub(r'॥\s*([०-९]+)\s*॥', lambda m: '॥' + m.group(1) + '॥', text)
+    # the source is inconsistent: verse 12.3 closes "।३॥" with a single danda
+    text = re.sub(r'[।॥]\s*([०-९]+)\s*॥', lambda m: '॥' + m.group(1) + '॥', text)
     return re.sub(r'\s+', ' ', text).strip()
 
 
@@ -51,7 +53,7 @@ def verses(page):
         inner = html.unescape(re.sub(r'<[^>]+>', '', inner))
         if not re.search(DEVANAGARI, inner):
             continue
-        num = re.search(r'॥\s*([०-९]+)\s*॥', inner)
+        num = re.search(r'[।॥]\s*([०-९]+)\s*॥', inner)
         if not num:
             continue
         joined = ''
