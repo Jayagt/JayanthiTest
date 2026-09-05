@@ -3,6 +3,11 @@ import { D1, D1B, D2, D2B } from "./data/dasakams.js";
 import guruvayurImg from "./guruvayur-krishna.jpg";
 
 // ── DATA ──────────────────────────────────────────────────────────────────────
+// Break a shloka into lines: each danda (। or ॥) ends a line.
+const vlines = t => (t || "")
+  .replace(/([।॥])(?!\s*[०-९0-9]+\s*॥)\s*/g, "$1\n")   // not inside a verse number like ॥१॥
+  .trim();
+
 const ALL = [...D1, ...D1B, ...D2, ...D2B].flatMap(d =>
   (d.qs || []).map((q, qi) => ({ ...d, ...q, qid: `${d.n}-${qi}`, qs: undefined }))
 );
@@ -312,7 +317,7 @@ export default function NarayaniyamGame() {
                 <span style={{fontSize:13,color:"#f0ece4",fontWeight:"bold",flex:1}}>{d0.t}</span>
                 <span style={{fontSize:10,color:allDone?TEAL:"#666"}}>{allDone?"✓":qsDone+"/"+qs.length}</span>
               </div>
-              <p style={{fontSize:14,color:"#b8a888",lineHeight:1.8,margin:0,fontFamily:"serif",fontStyle:"italic"}}>{d0.vs}</p>
+              <p style={{fontSize:14,color:"#b8a888",lineHeight:1.8,margin:0,fontFamily:"serif",fontStyle:"italic",whiteSpace:"pre-line"}}>{vlines(d0.vs)}</p>
               <p style={{fontSize:11,color:"#908878",lineHeight:1.5,margin:0}}>{d0.vt}</p>
             </div>
             );
@@ -343,7 +348,7 @@ export default function NarayaniyamGame() {
             <span style={{fontSize:16,color:"#f0ece4",fontWeight:"bold",flex:1}}>{d0.t}</span>
             <span style={{fontSize:12,color:qsDone===qs.length?TEAL:"#888"}}>{qsDone}/{qs.length}</span>
           </div>
-          <p style={{fontSize:16,color:"#c8b898",lineHeight:1.9,margin:"0 0 10px",fontFamily:"serif",fontStyle:"italic"}}>{d0.vs}</p>
+          <p style={{fontSize:16,color:"#c8b898",lineHeight:1.9,margin:"0 0 10px",fontFamily:"serif",fontStyle:"italic",whiteSpace:"pre-line"}}>{vlines(d0.vs)}</p>
           <p style={{fontSize:13,color:"#a09080",lineHeight:1.7,margin:0}}>{d0.vt}</p>
         </div>
         <div style={{display:"flex",flexDirection:"column",gap:8}}>
@@ -451,7 +456,7 @@ export default function NarayaniyamGame() {
         {verse&&(
           <div style={s.vbox}>
             <div style={{fontSize:10,color:G,letterSpacing:1,marginBottom:7}}>✦ Key Verse {sel.kv}</div>
-            {sel.vs&&<p style={{fontSize:16,color:"#e0d0b0",lineHeight:2,margin:"0 0 8px",fontFamily:"serif"}}>{sel.vs}</p>}
+            {sel.vs&&<p style={{fontSize:16,color:"#e0d0b0",lineHeight:2,margin:"0 0 8px",fontFamily:"serif",whiteSpace:"pre-line"}}>{vlines(sel.vs)}</p>}
             <p style={{fontSize:13,color:"#c0b8a0",lineHeight:1.8,margin:0,fontStyle:"italic"}}>{sel.vt}</p>
           </div>
         )}
