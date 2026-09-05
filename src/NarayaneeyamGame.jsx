@@ -90,7 +90,6 @@ const s = {
   rbox:{marginTop:16,background:"linear-gradient(135deg, rgba(212,122,46,0.08), rgba(122,106,170,0.06))",border:`1px solid ${BO}`,borderRadius:12,padding:"16px"},
   rh:{fontSize:16,fontWeight:"bold",marginBottom:8},
   exp:{fontSize:13,color:"#c0b8a0",lineHeight:1.7,marginBottom:10},
-  ff:{background:"rgba(42,138,130,0.08)",border:"1px solid rgba(42,138,130,0.2)",borderRadius:8,padding:"9px 12px",marginBottom:12},
   hi:{background:"#141414",border:"1px solid rgba(255,255,255,0.08)",borderRadius:9,padding:"10px 14px",display:"flex",flexDirection:"column",gap:3},
   groupBtn:{background:"#141414",border:"1px solid rgba(255,255,255,0.1)",borderRadius:12,padding:"10px 12px",cursor:"pointer",fontFamily:"Georgia,serif",display:"flex",flexDirection:"column",alignItems:"center",gap:3,transition:"all 0.2s",boxShadow:"0 1px 4px rgba(0,0,0,0.3)"},
   groupBtnOpen:{background:"rgba(184,134,11,0.1)",border:`1px solid ${BO}`},
@@ -452,6 +451,7 @@ export default function NarayaniyamGame() {
         {verse&&(
           <div style={s.vbox}>
             <div style={{fontSize:10,color:G,letterSpacing:1,marginBottom:7}}>✦ Key Verse {sel.kv}</div>
+            {sel.vs&&<p style={{fontSize:16,color:"#e0d0b0",lineHeight:2,margin:"0 0 8px",fontFamily:"serif"}}>{sel.vs}</p>}
             <p style={{fontSize:13,color:"#c0b8a0",lineHeight:1.8,margin:0,fontStyle:"italic"}}>{sel.vt}</p>
           </div>
         )}
@@ -478,15 +478,6 @@ export default function NarayaniyamGame() {
             <div style={s.rbox}>
               <div style={{...s.rh,color:ans===sel.a?TEAL:SAFFRON}}>{ans===sel.a?"✨ Excellent!":"📖 Learn & Grow"}</div>
               <p style={s.exp}>{sel.exp}</p>
-              {sel.vs&&<div style={{background:"linear-gradient(135deg, rgba(212,122,46,0.1), rgba(122,106,170,0.06))",border:"1px solid rgba(212,122,46,0.15)",borderLeft:`4px solid ${SAFFRON}`,borderRadius:8,padding:"12px 14px",marginBottom:10}}>
-                <div style={{fontSize:10,color:SAFFRON,letterSpacing:1,marginBottom:8}}>✦ Key Verse {sel.kv}</div>
-                <p style={{fontSize:16,color:"#e0d0b0",lineHeight:2,margin:"0 0 8px",fontFamily:"serif"}}>{sel.vs}</p>
-                <p style={{fontSize:11,color:"#b0a888",lineHeight:1.6,margin:0,fontStyle:"italic"}}>{sel.vt}</p>
-              </div>}
-              <div style={s.ff}>
-                <span style={{color:TEAL,fontSize:12,fontWeight:"bold"}}>💡 Insight: </span>
-                <span style={{color:"#c0b8a0",fontSize:12}}>{sel.fact}</span>
-              </div>
               <div style={{display:"flex",gap:8,flexWrap:"wrap"}}>
                 <button style={s.btnP} onClick={cont}>↺ Try Again</button>
                 <button style={s.btnP} onClick={next}>Next →</button>
