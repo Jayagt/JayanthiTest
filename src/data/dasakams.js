@@ -1,5 +1,6 @@
 // Narayaneeyam Quiz Data — 3 questions per Dasakam, drawn from the Narayaneeyam text
-// Populated: Dasakams 1-10 (D1), 11-20 (D1B), 21-30 (D2). D2B = 31-40 (pending)
+// Populated: Dasakams 1-10 (D1), 11-20 (D1B), 21-30 (D2), 31- (D2B)
+// bh = corresponding canto of the Bhagavata Purana
 // vt = main takeaway from the dasakam
 
 const D1 = [
@@ -249,6 +250,15 @@ qs:[
 {q:"How does Dasakam 30 describe Vamana as He set out for Bali's sacrifice?",o:["As a mighty warrior clad in full armour and arms","As a radiant dwarf brahmacārin with staff and deerskin","As an aged ascetic worn thin by long austerity","As a king arriving in his full royal procession"],a:1,exp:"The Lord appeared as a short-statured brahmacārin whose brilliance nonetheless dimmed the assembly, bearing the umbrella, staff, water-pot and deerskin of a student, and walked to the sacrificial ground of Bali."}
 ]}
 ];
-const D2B = [];
+const D2B = [
+{n:31,t:"Vamana Blessing Bali",kv:"31.1",bh:"Bhāgavata VIII.19–23",
+vt:"Delighted at the sight of Your radiant form, the Asura worshipped You in every way, O Unconquered One, and folding his hands said: what do you wish from me? Speak, O son of a brāhmaṇa — wealth, food, a dwelling, or the earth itself, I shall give it all.",
+vs:"प्रीत्या दैत्यस्तव तनुमहःप्रेक्षणात् सर्वथाऽपि त्वामाराध्यन्नजित रचयन्नञ्जलिं सञ्जगाद । मत्तः किं ते समभिलषितं विप्रसूनो वद त्वं वित्तं भक्तं भवनमवनीं वाऽपि सर्वं प्रदास्ये ॥",
+qs:[
+{q:"Bali offers the young brahmacārin anything he names. What does Vāmana ask for?",o:["A share of the merit of Bali's sacrifice","Three paces of land, measured by His own foot","The whole of the earth and its treasuries","A seat among the priests at the ceremony"],a:1,exp:"Offered wealth, food, a dwelling or the earth entire — 'vittaṁ bhaktaṁ bhavanam avanīṁ vāpi sarvaṁ pradāsye' — the Lord asks only for as much ground as three of His own small steps will cover. Bali is amused that so little is wanted."},
+{q:"Who tried to prevent Bali from granting the request, and how did Bali respond?",o:["Śukrācārya warned him, but Bali kept his word","Prahlāda warned him, and Bali withdrew the gift","His ministers objected, and Bali overruled them","No one objected, and the gift was made at once"],a:0,exp:"Śukrācārya saw through the disguise and told Bali the boy was Viṣṇu Himself. Bali answered that to break a promise is the greater ruin, and that a gift begged for by the Lord is not a loss — and was cursed by his own preceptor for it."},
+{q:"With two strides the Lord had covered earth and heaven. Where did the third fall?",o:["Upon the summit of Mount Meru, at the centre","Upon the head of Śukrācārya, who had objected","Upon Bali's own head, which he offered himself","Nowhere — the Lord withdrew it out of mercy"],a:2,exp:"No space remained, and Bali bowed and offered his head for the third step. The Lord set His foot there, gave him rulership of Sutala, and — the turn Bhattathiri dwells on — took up station as the doorkeeper of the demon king He had just dispossessed."}
+]}
+];
 
 export { D1, D1B, D2, D2B };

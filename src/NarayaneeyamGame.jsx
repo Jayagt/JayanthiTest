@@ -348,6 +348,7 @@ export default function NarayaniyamGame() {
             <span style={{fontSize:16,color:"#f0ece4",fontWeight:"bold",flex:1}}>{d0.t}</span>
             <span style={{fontSize:12,color:qsDone===qs.length?TEAL:"#888"}}>{qsDone}/{qs.length}</span>
           </div>
+          {d0.bh&&<div style={{fontSize:11,color:VIOLET,fontStyle:"italic",marginBottom:10}}>{d0.bh}</div>}
           <p style={{fontSize:16,color:"#c8b898",lineHeight:1.9,margin:"0 0 10px",fontFamily:"serif",fontStyle:"italic",whiteSpace:"pre-line"}}>{vlines(d0.vs)}</p>
           <p style={{fontSize:13,color:"#a09080",lineHeight:1.7,margin:0}}>{d0.vt}</p>
         </div>
@@ -449,6 +450,7 @@ export default function NarayaniyamGame() {
         <div style={s.banner}>
           <div style={{fontSize:10,color:DG,letterSpacing:2,textTransform:"uppercase"}}>Dasakam {sel.n}</div>
           <div style={{fontSize:17,color:G,fontWeight:"bold"}}>{sel.t}</div>
+          {sel.bh&&<div style={{fontSize:11,color:VIOLET,marginTop:3,fontStyle:"italic"}}>{sel.bh}</div>}
         </div>
         <button style={s.vbtn} onClick={()=>setVerse(v=>!v)}>
           {verse?"Hide":"✨ Show"} Key Verse ({sel.kv})
