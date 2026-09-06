@@ -196,19 +196,19 @@ export default function NarayaniyamGame() {
   // TITLE
   if (screen === "title") return (
     <div style={s.root}><div style={s.bg}/>
-      <div style={{...s.wrap,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",minHeight:"100vh",gap:18,paddingTop:24,paddingBottom:24}}>
-        <img src={guruvayurImg} alt="Guruvāyūrappan" style={{width:"clamp(250px,64vw,310px)",borderRadius:14,boxShadow:"0 4px 30px rgba(212,122,46,0.2)",border:`3px solid ${BO}`}} />
+      <div style={{...s.wrap,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",minHeight:"100vh",gap:13,paddingTop:20,paddingBottom:20}}>
+        <img src={guruvayurImg} alt="Guruvāyūrappan" style={{width:"min(clamp(230px,66vw,310px), 32vh)",borderRadius:14,boxShadow:"0 4px 30px rgba(212,122,46,0.2)",border:`3px solid ${BO}`}} />
         <h1 style={{fontSize:"clamp(24px,6.4vw,29px)",fontWeight:"bold",textAlign:"center",color:G,margin:0,lineHeight:1.3}}>Śrīman Nārāyaṇīyam</h1>
         <p style={{fontSize:"clamp(13px,3.6vw,15px)",color:"#b8a888",textAlign:"center",margin:0,fontStyle:"italic"}}>The Quintessence of Śrīmad Bhāgavatam</p>
-        <div style={{background:"rgba(212,122,46,0.06)",border:`1px solid ${BO}`,borderRadius:12,padding:"16px 20px",maxWidth:480,marginTop:8}}>
-          <p className="sanskrit" style={{fontSize:"clamp(16px,4.4vw,19px)",color:"#e8d8b0",lineHeight:2.2,margin:0,textAlign:"center"}}>
+        <div style={{background:"rgba(212,122,46,0.06)",border:`1px solid ${BO}`,borderRadius:12,padding:"12px 16px",maxWidth:480,marginTop:2}}>
+          <p className="sanskrit" style={{fontSize:"clamp(13px,3.5vw,16px)",color:"#e8d8b0",lineHeight:1.85,margin:0,textAlign:"center"}}>
             सान्द्रानन्दावबोधात्मकमनुपमितं कालदेशावधिभ्यां<br/>
             निर्मुक्तं नित्यमुक्तं निगमशतसहस्रेण निर्भास्यमानम् ।<br/>
             अस्पष्टं दृष्टमात्रे पुनरुरुपुरुषार्थात्मकं ब्रह्म तत्त्वं<br/>
             तत्तावद्भाति साक्षाद् गुरुपवनपुरे हन्त भाग्यं जनानाम् ॥
           </p>
         </div>
-        <button style={{...s.btnP,marginTop:12,padding:"15px 40px",fontSize:16}} onClick={()=>setScreen("about")}>Continue →</button>
+        <button style={{...s.btnP,marginTop:4,padding:"13px 36px",fontSize:15}} onClick={()=>setScreen("about")}>Continue →</button>
       </div>
     </div>
   );
