@@ -60,9 +60,16 @@ def verses(page):
         for pada in (l.strip() for l in inner.split('\n') if l.strip()):
             joined = (joined[:-1] + pada) if joined.endswith('-') else \
                      ((joined + ' ' + pada) if joined else pada)
-        key = int(''.join(str('०१२३४५६७८९'.index(c))
-                          for c in num.group(1)))
-        out[key] = tidy(joined)
+        printed = int(''.join(str('०१२३४५६७८९'.index(c))
+                              for c in num.group(1)))
+        # Number by document order, not by the printed marker: Dasakam 40 gives
+        # its sixth verse the marker ॥५॥, so trusting the marker silently drops
+        # a verse. The marker is reported when it disagrees.
+        seq = len(out) + 1
+        if printed != seq:
+            print(f"  ! verse {seq} is marked \u0965{num.group(1)}\u0965 in the source",
+                  file=sys.stderr)
+        out[seq] = tidy(joined)
     return out
 
 
