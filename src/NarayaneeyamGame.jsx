@@ -230,12 +230,12 @@ export default function NarayaniyamGame() {
       <div style={{...s.wrap,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",minHeight:"100vh",gap:20,paddingTop:0}}>
         <div style={{fontSize:48,lineHeight:1,color:SAFFRON}}>ॐ</div>
         <h2 style={{fontSize:24,fontWeight:"bold",textAlign:"center",color:G,margin:0}}>About the Śrīman Nārāyaṇīyam</h2>
-        <div style={{background:"linear-gradient(135deg, rgba(212,122,46,0.1), rgba(122,106,170,0.06), rgba(42,138,130,0.05))",border:`1px solid ${BO}`,borderRadius:14,padding:"20px",maxWidth:480}}>
+        <div style={{background:"rgba(212,122,46,0.06)",border:`1px solid ${BO}`,borderRadius:14,padding:"22px",maxWidth:480}}>
           <p style={{fontSize:14,color:"#e0d8c8",lineHeight:1.9,margin:"0 0 12px",textAlign:"center"}}>
-            Composed in <span style={{color:SAFFRON,fontWeight:"bold"}}>1586 CE</span> by <span style={{color:SAFFRON,fontWeight:"bold"}}>Melapathur Nārāyaṇa Bhaṭṭathiri</span> at the sacred <span style={{color:G,fontWeight:"bold"}}>Guruvāyūr</span> temple in Kerala, the Śrīman Nārāyaṇīyam condenses the 18,000 verses of the Śrīmad Bhāgavatam into <span style={{color:TEAL,fontWeight:"bold"}}>1,036 verses</span> across <span style={{color:TEAL,fontWeight:"bold"}}>100 Daśakams</span>.
+            Composed in 1586 CE by <span style={{color:SAFFRON,fontWeight:"bold"}}>Melapathur Nārāyaṇa Bhaṭṭathiri</span> at the temple of <span style={{color:SAFFRON,fontWeight:"bold"}}>Guruvāyūr</span> in Kerala, the Śrīman Nārāyaṇīyam condenses the 18,000 verses of the Śrīmad Bhāgavatam into <span style={{color:SAFFRON,fontWeight:"bold"}}>1,036 verses</span> across <span style={{color:SAFFRON,fontWeight:"bold"}}>100 Daśakams</span>.
           </p>
           <p style={{fontSize:14,color:"#e0d8c8",lineHeight:1.9,margin:"0 0 12px",textAlign:"center"}}>
-            Written as a prayer for healing while suffering from severe paralysis, it journeys from the Lord's cosmic nature through all His avatāras to the sweetness of Kṛṣṇa's līlās — a masterpiece of <span style={{color:VIOLET,fontWeight:"bold"}}>bhakti</span>, <span style={{color:LOTUS,fontWeight:"bold"}}>darśana</span>, and <span style={{color:TEAL,fontWeight:"bold"}}>kāvya</span>.
+            Written as a prayer for healing while suffering from severe paralysis, it journeys from the Lord's cosmic nature through all His avatāras to the sweetness of Kṛṣṇa's līlās — a masterpiece of <span style={{fontStyle:"italic"}}>bhakti</span>, <span style={{fontStyle:"italic"}}>darśana</span> and <span style={{fontStyle:"italic"}}>kāvya</span>.
           </p>
           <p style={{fontSize:13,color:"#b8a888",lineHeight:1.8,margin:0,textAlign:"center",fontStyle:"italic"}}>
             Tradition holds that when Bhaṭṭathiri completed the 100th Daśakam, the Lord of Guruvāyūr appeared before him and his disease was cured.
