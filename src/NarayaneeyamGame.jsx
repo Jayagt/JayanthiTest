@@ -315,7 +315,9 @@ export default function NarayaniyamGame() {
     </div>
   );
 
-  // GROUP — shows 10 dasakams with title and key verse (clickable)
+  // GROUP — a chooser: which dasakam next, and how far through it you are.
+  // The verses live on the dasakam screen and in the play toggle, so this one
+  // stays scannable rather than stacking ten shlokas.
   if (screen === "group" && filter !== "all") {
     const groupRanges = ranges.filter(r => r !== "all");
     const groupTints = ["#b8860b","#2e8b57","#3a7ec0","#c05070","#7a6a40","#2a8a82","#c87830","#7a6aaa","#8a7a30","#3a8a6a"];
@@ -324,30 +326,49 @@ export default function NarayaniyamGame() {
     const [lo,hi] = filter.split("-").map(Number);
     const group = ALL.filter(d => d.n >= lo && d.n <= hi);
     const doneCount = group.filter(d => done.has(d.qid)).length;
+    const pct = group.length ? Math.round((doneCount / group.length) * 100) : 0;
     const dasakamNums = [...new Set(group.map(d => d.n))];
     return (
     <div style={s.root}><div style={s.bg}/>
       <div style={{...s.wrap,maxWidth:960}}>
         <button style={s.back} onClick={()=>setScreen("home")}>← Back</button>
-        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16}}>
-          <p style={{...s.ptit,fontSize:20,margin:0,color:tint}}>Dasakams {filter}</p>
-          <span style={{fontSize:12,color:"#888"}}>{doneCount}/{group.length}</span>
+
+        <div style={{marginBottom:18}}>
+          <div style={{display:"flex",justifyContent:"space-between",alignItems:"baseline",gap:12,marginBottom:8}}>
+            <p style={{...s.ptit,fontSize:"clamp(19px,5vw,22px)",margin:0,color:tint}}>Daśakams {filter}</p>
+            <span style={{fontSize:12,color:"#8a8378",whiteSpace:"nowrap"}}>{doneCount} of {group.length} questions</span>
+          </div>
+          <div style={{height:4,borderRadius:2,background:"rgba(255,255,255,0.07)",overflow:"hidden"}}>
+            <div style={{height:"100%",width:`${pct}%`,background:tint,borderRadius:2,transition:"width .3s"}}/>
+          </div>
         </div>
-        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(150px,1fr))",gap:10}}>
+
+        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(340px,1fr))",gap:10}}>
           {dasakamNums.map(n => {
             const qs = group.filter(d => d.n === n);
             const d0 = qs[0];
             const qsDone = qs.filter(d => done.has(d.qid)).length;
             const allDone = qsDone === qs.length;
             return (
-            <div key={n} style={{background:allDone?"rgba(42,138,130,0.06)":"#141414",border:`1px solid ${allDone?"rgba(42,138,130,0.3)":"rgba(255,255,255,0.08)"}`,borderRadius:12,padding:"12px 14px",borderLeft:`4px solid ${tint}`,cursor:"pointer",boxShadow:"0 1px 6px rgba(0,0,0,0.3)",display:"flex",flexDirection:"column",gap:6}} onClick={()=>{setSelDasakam(n);setScreen("dasakam")}}>
-              <div style={{display:"flex",alignItems:"center",gap:8}}>
-                <span style={{fontSize:16,fontWeight:"bold",color:tint}}>{n}</span>
-                <span style={{fontSize:13,color:"#f0ece4",fontWeight:"bold",flex:1}}>{d0.t}</span>
-                <span style={{fontSize:10,color:allDone?TEAL:"#666"}}>{allDone?"✓":qsDone+"/"+qs.length}</span>
+            <div key={n}
+              style={{background:allDone?"rgba(42,138,130,0.07)":"#141414",border:`1px solid ${allDone?"rgba(42,138,130,0.28)":"rgba(255,255,255,0.08)"}`,borderRadius:12,padding:"14px 16px",borderLeft:`4px solid ${tint}`,cursor:"pointer",boxShadow:"0 1px 6px rgba(0,0,0,0.3)",display:"flex",gap:13,alignItems:"flex-start"}}
+              onClick={()=>{setSelDasakam(n);setScreen("dasakam")}}>
+
+              <span style={{flexShrink:0,width:34,height:34,borderRadius:"50%",background:`${tint}1f`,border:`1px solid ${tint}55`,color:tint,fontSize:15,fontWeight:"bold",display:"flex",alignItems:"center",justifyContent:"center",fontFamily:"Georgia,serif"}}>{n}</span>
+
+              <div style={{flex:1,minWidth:0,display:"flex",flexDirection:"column",gap:4}}>
+                <div style={{display:"flex",alignItems:"center",gap:10}}>
+                  <span style={{fontSize:"clamp(14px,3.8vw,15px)",color:"#f0ece4",fontWeight:"bold",flex:1,minWidth:0}}>{d0.t}</span>
+                  <span style={{flexShrink:0,display:"flex",gap:4}} title={`${qsDone} of ${qs.length} answered`}>
+                    {qs.map(q => (
+                      <span key={q.qid} style={{width:7,height:7,borderRadius:"50%",background:done.has(q.qid)?TEAL:"rgba(255,255,255,0.16)"}}/>
+                    ))}
+                  </span>
+                </div>
+                <span style={{fontSize:11,color:d0.bh?"#8a8378":"#6d6558",fontStyle:"italic"}}>{d0.bh || "Bhaṭṭathiri's own"}</span>
+                <p className="sanskrit" style={{fontSize:"clamp(14.5px,3.8vw,16px)",color:"#b8a888",lineHeight:1.9,margin:"3px 0 1px",whiteSpace:"pre-line"}}>{vlines(d0.vs)}</p>
+                <p style={{fontSize:"clamp(12.5px,3.3vw,13.5px)",color:"#a09888",lineHeight:1.6,margin:0}}>{d0.vt}</p>
               </div>
-              <p className="sanskrit" style={{fontSize:"clamp(15px,4vw,17px)",color:"#b8a888",lineHeight:1.95,margin:0,whiteSpace:"pre-line"}}>{vlines(d0.vs)}</p>
-              <p style={{fontSize:"clamp(12px,3.2vw,13px)",color:"#908878",lineHeight:1.55,margin:0}}>{d0.vt}</p>
             </div>
             );
           })}
