@@ -196,10 +196,10 @@ export default function NarayaniyamGame() {
   // TITLE
   if (screen === "title") return (
     <div style={s.root}><div style={s.bg}/>
-      <div style={{...s.wrap,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",minHeight:"100vh",gap:24,paddingTop:0}}>
-        <img src={guruvayurImg} alt="Guruvāyūrappan" style={{width:220,borderRadius:14,boxShadow:"0 4px 30px rgba(212,122,46,0.2)",border:`3px solid ${BO}`}} />
-        <h1 style={{fontSize:36,fontWeight:"bold",textAlign:"center",color:G,margin:0,lineHeight:1.3}}>Śrīman Nārāyaṇīyam</h1>
-        <p style={{fontSize:16,color:"#b8a888",textAlign:"center",margin:0,fontStyle:"italic"}}>The Quintessence of Śrīmad Bhāgavatam</p>
+      <div style={{...s.wrap,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",minHeight:"100vh",gap:18,paddingTop:24,paddingBottom:24}}>
+        <img src={guruvayurImg} alt="Guruvāyūrappan" style={{width:"clamp(250px,64vw,310px)",borderRadius:14,boxShadow:"0 4px 30px rgba(212,122,46,0.2)",border:`3px solid ${BO}`}} />
+        <h1 style={{fontSize:"clamp(24px,6.4vw,29px)",fontWeight:"bold",textAlign:"center",color:G,margin:0,lineHeight:1.3}}>Śrīman Nārāyaṇīyam</h1>
+        <p style={{fontSize:"clamp(13px,3.6vw,15px)",color:"#b8a888",textAlign:"center",margin:0,fontStyle:"italic"}}>The Quintessence of Śrīmad Bhāgavatam</p>
         <div style={{background:"rgba(212,122,46,0.06)",border:`1px solid ${BO}`,borderRadius:12,padding:"16px 20px",maxWidth:480,marginTop:8}}>
           <p className="sanskrit" style={{fontSize:"clamp(16px,4.4vw,19px)",color:"#e8d8b0",lineHeight:2.2,margin:0,textAlign:"center"}}>
             सान्द्रानन्दावबोधात्मकमनुपमितं कालदेशावधिभ्यां<br/>
@@ -252,7 +252,6 @@ export default function NarayaniyamGame() {
   // HOME (screen 3 — dasakam groups + stats + controls)
   if (screen === "home") {
     const groupRanges = ranges.filter(r => r !== "all");
-    const groupTints = ["#b8860b","#2e8b57","#3a7ec0","#c05070","#7a6a40","#2a8a82","#c87830","#7a6aaa","#8a7a30","#3a8a6a"];
     return (
     <div style={s.root}><div style={s.bg}/>
       <div style={{...s.wrap,display:"flex",flexDirection:"column",alignItems:"center",gap:14,paddingTop:40}}>
@@ -268,21 +267,23 @@ export default function NarayaniyamGame() {
             const [lo,hi] = r.split("-").map(Number);
             const group = ALL.filter(d => d.n >= lo && d.n <= hi);
             const doneCount = group.filter(d => done.has(d.qid)).length;
-            const tint = groupTints[ri] || G;
+            // Colour says how far through the group you are, rather than which
+            // group it happens to be: untouched, started, finished.
+            const tone = doneCount === 0 ? "#7d746a" : doneCount === group.length ? TEAL : G;
             return (
-              <button key={r} style={s.groupBtn} onClick={()=>{setFilter(r);setScreen("group")}}>
-                <span style={{fontSize:13,fontWeight:"bold",color:tint}}>{r}</span>
+              <button key={r} style={{...s.groupBtn,borderColor:doneCount===group.length?"rgba(58,184,168,0.28)":"rgba(255,255,255,0.1)"}} onClick={()=>{setFilter(r);setScreen("group")}}>
+                <span style={{fontSize:13,fontWeight:"bold",color:tone}}>{r}</span>
                 <div style={{width:"100%",height:3,borderRadius:2,background:"rgba(255,255,255,0.1)",overflow:"hidden"}}>
-                  <div style={{width:`${doneCount/group.length*100}%`,height:"100%",borderRadius:2,background:tint,opacity:0.5,transition:"width 0.3s"}}/>
+                  <div style={{width:`${doneCount/group.length*100}%`,height:"100%",borderRadius:2,background:tone,opacity:0.65,transition:"width 0.3s"}}/>
                 </div>
-                <span style={{fontSize:9,color:"#888"}}>{doneCount}/{group.length}</span>
+                <span style={{fontSize:9,color:"#8a8378"}}>{doneCount}/{group.length}</span>
               </button>
             );
           })}
         </div>
         <div style={s.statsBar}>
-          {[["Questions",total,SAFFRON,"rgba(212,122,46,0.08)","rgba(212,122,46,0.2)"],["Correct",score,TEAL,"rgba(42,138,130,0.08)","rgba(42,138,130,0.2)"],["Accuracy",acc+"%",VIOLET,"rgba(122,106,170,0.08)","rgba(122,106,170,0.2)"],["Streak",streak,LOTUS,"rgba(192,80,112,0.08)","rgba(192,80,112,0.2)"]].map(([l,v,c,bg,bd])=>(
-            <div key={l} style={{...s.statBox,background:bg,border:`1px solid ${bd}`}}><div style={{...s.sv,color:c}}>{v}</div><div style={{...s.sl,color:c,opacity:0.6}}>{l}</div></div>
+          {[["Questions",total],["Correct",score],["Accuracy",acc+"%"],["Streak",streak]].map(([l,v])=>(
+            <div key={l} style={{...s.statBox,background:"rgba(255,255,255,0.03)",border:`1px solid ${BO}`}}><div style={{...s.sv,color:G}}>{v}</div><div style={{...s.sl,color:"#8a8378"}}>{l}</div></div>
           ))}
         </div>
         <div style={{display:"flex",gap:10,flexWrap:"wrap",justifyContent:"center"}}>
@@ -319,10 +320,6 @@ export default function NarayaniyamGame() {
   // The verses live on the dasakam screen and in the play toggle, so this one
   // stays scannable rather than stacking ten shlokas.
   if (screen === "group" && filter !== "all") {
-    const groupRanges = ranges.filter(r => r !== "all");
-    const groupTints = ["#b8860b","#2e8b57","#3a7ec0","#c05070","#7a6a40","#2a8a82","#c87830","#7a6aaa","#8a7a30","#3a8a6a"];
-    const ri = groupRanges.indexOf(filter);
-    const tint = groupTints[ri] || G;
     const [lo,hi] = filter.split("-").map(Number);
     const group = ALL.filter(d => d.n >= lo && d.n <= hi);
     const doneCount = group.filter(d => done.has(d.qid)).length;
@@ -335,11 +332,11 @@ export default function NarayaniyamGame() {
 
         <div style={{marginBottom:18}}>
           <div style={{display:"flex",justifyContent:"space-between",alignItems:"baseline",gap:12,marginBottom:8}}>
-            <p style={{...s.ptit,fontSize:"clamp(19px,5vw,22px)",margin:0,color:tint}}>Daśakams {filter}</p>
+            <p style={{...s.ptit,fontSize:"clamp(19px,5vw,22px)",margin:0,color:G}}>Daśakams {filter}</p>
             <span style={{fontSize:12,color:"#8a8378",whiteSpace:"nowrap"}}>{doneCount} of {group.length} questions</span>
           </div>
           <div style={{height:4,borderRadius:2,background:"rgba(255,255,255,0.07)",overflow:"hidden"}}>
-            <div style={{height:"100%",width:`${pct}%`,background:tint,borderRadius:2,transition:"width .3s"}}/>
+            <div style={{height:"100%",width:`${pct}%`,background:G,borderRadius:2,transition:"width .3s"}}/>
           </div>
         </div>
 
@@ -351,10 +348,10 @@ export default function NarayaniyamGame() {
             const allDone = qsDone === qs.length;
             return (
             <div key={n}
-              style={{background:allDone?"rgba(42,138,130,0.07)":"#141414",border:`1px solid ${allDone?"rgba(42,138,130,0.28)":"rgba(255,255,255,0.08)"}`,borderRadius:12,padding:"14px 16px",borderLeft:`4px solid ${tint}`,cursor:"pointer",boxShadow:"0 1px 6px rgba(0,0,0,0.3)",display:"flex",gap:13,alignItems:"flex-start"}}
+              style={{background:allDone?"rgba(42,138,130,0.07)":"#141414",border:`1px solid ${allDone?"rgba(42,138,130,0.28)":"rgba(255,255,255,0.08)"}`,borderRadius:12,padding:"14px 16px",borderLeft:`4px solid ${G}`,cursor:"pointer",boxShadow:"0 1px 6px rgba(0,0,0,0.3)",display:"flex",gap:13,alignItems:"flex-start"}}
               onClick={()=>{setSelDasakam(n);setScreen("dasakam")}}>
 
-              <span style={{flexShrink:0,width:34,height:34,borderRadius:"50%",background:`${tint}1f`,border:`1px solid ${tint}55`,color:tint,fontSize:15,fontWeight:"bold",display:"flex",alignItems:"center",justifyContent:"center",fontFamily:"Georgia,serif"}}>{n}</span>
+              <span style={{flexShrink:0,width:34,height:34,borderRadius:"50%",background:`${G}1f`,border:`1px solid ${G}55`,color:G,fontSize:15,fontWeight:"bold",display:"flex",alignItems:"center",justifyContent:"center",fontFamily:"Georgia,serif"}}>{n}</span>
 
               <div style={{flex:1,minWidth:0,display:"flex",flexDirection:"column",gap:4}}>
                 <div style={{display:"flex",alignItems:"center",gap:10}}>
@@ -380,10 +377,6 @@ export default function NarayaniyamGame() {
 
   // DASAKAM — shows 3 question cards for the selected dasakam
   if (screen === "dasakam" && selDasakam) {
-    const groupRanges = ranges.filter(r => r !== "all");
-    const groupTints = ["#b8860b","#2e8b57","#3a7ec0","#c05070","#7a6a40","#2a8a82","#c87830","#7a6aaa","#8a7a30","#3a8a6a"];
-    const ri = groupRanges.indexOf(filter);
-    const tint = groupTints[ri] || G;
     const qs = ALL.filter(d => d.n === selDasakam);
     const d0 = qs[0];
     if (!d0) return null;
@@ -394,7 +387,7 @@ export default function NarayaniyamGame() {
         <button style={s.back} onClick={()=>setScreen("group")}>← Back</button>
         <div style={{background:"linear-gradient(135deg, rgba(212,122,46,0.1), rgba(122,106,170,0.06))",border:`1px solid ${BO}`,borderRadius:12,padding:"16px",marginBottom:16}}>
           <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:10}}>
-            <span style={{fontSize:20,fontWeight:"bold",color:tint}}>{d0.n}</span>
+            <span style={{fontSize:20,fontWeight:"bold",color:G}}>{d0.n}</span>
             <span style={{fontSize:16,color:"#f0ece4",fontWeight:"bold",flex:1}}>{d0.t}</span>
             <span style={{fontSize:12,color:qsDone===qs.length?TEAL:"#888"}}>{qsDone}/{qs.length}</span>
           </div>
@@ -407,9 +400,9 @@ export default function NarayaniyamGame() {
             const qNum = +d.qid.split("-")[1] + 1;
             const isDone = done.has(d.qid);
             return (
-            <div key={d.qid} style={{background:isDone?"rgba(42,138,130,0.06)":"#141414",border:`1px solid ${isDone?"rgba(42,138,130,0.3)":"rgba(255,255,255,0.08)"}`,borderRadius:10,padding:"14px 16px",borderLeft:`3px solid ${isDone?TEAL:tint}`,cursor:"pointer",boxShadow:"0 1px 4px rgba(0,0,0,0.2)"}} onClick={()=>pick(d)}>
+            <div key={d.qid} style={{background:isDone?"rgba(42,138,130,0.06)":"#141414",border:`1px solid ${isDone?"rgba(42,138,130,0.3)":"rgba(255,255,255,0.08)"}`,borderRadius:10,padding:"14px 16px",borderLeft:`3px solid ${isDone?TEAL:G}`,cursor:"pointer",boxShadow:"0 1px 4px rgba(0,0,0,0.2)"}} onClick={()=>pick(d)}>
               <div style={{display:"flex",alignItems:"center",gap:10}}>
-                <span style={{fontSize:13,color:tint,fontWeight:"bold",minWidth:24}}>Q{qNum}</span>
+                <span style={{fontSize:13,color:G,fontWeight:"bold",minWidth:24}}>Q{qNum}</span>
                 <span style={{fontSize:13,color:"#d0c8b8",flex:1,lineHeight:1.5}}>{d.q}</span>
                 {isDone&&<span style={{color:TEAL,fontSize:13}}>✓</span>}
               </div>
