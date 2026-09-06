@@ -1,5 +1,4 @@
-import { useState, useCallback } from "react";
-import { DASAKAMS } from "./data/dasakams.js";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import guruvayurImg from "./guruvayur-krishna.jpg";
 
 // ── DATA ──────────────────────────────────────────────────────────────────────
@@ -7,10 +6,6 @@ import guruvayurImg from "./guruvayur-krishna.jpg";
 const vlines = t => (t || "")
   .replace(/([।॥])(?!\s*[०-९0-9]+\s*॥)\s*/g, "$1\n")   // not inside a verse number like ॥१॥
   .trim();
-
-const ALL = DASAKAMS.flatMap(d =>
-  (d.qs || []).map((q, qi) => ({ ...d, ...q, qid: `${d.n}-${qi}`, qs: undefined }))
-);
 
 // ── DASAKAM 100 — VERSE BY VERSE ─────────────────────────────────────────────
 const DASAKAM_100 = [
@@ -107,6 +102,25 @@ export default function NarayaniyamGame() {
   const load = (k, d) => { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch { return d; } };
   const save = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} };
 
+  // The quiz data is by far the largest thing here, and the title and about
+  // screens do not need it. Loading it on its own keeps the first paint small;
+  // the request starts immediately, so it is normally ready before it is wanted.
+  const [dasakams, setDasakams] = useState(null);
+  useEffect(() => {
+    let alive = true;
+    import("./data/dasakams.js")
+      .then(m => { if (alive) setDasakams(m.DASAKAMS); })
+      .catch(() => { if (alive) setDasakams([]); });
+    return () => { alive = false; };
+  }, []);
+
+  const ALL = useMemo(
+    () => (dasakams || []).flatMap(d =>
+      (d.qs || []).map((q, qi) => ({ ...d, ...q, qid: `${d.n}-${qi}`, qs: undefined }))
+    ),
+    [dasakams]
+  );
+
   const [screen, setScreen] = useState("title");
   const [sel, setSel] = useState(null);
   const [ans, setAns] = useState(null);
@@ -146,7 +160,11 @@ export default function NarayaniyamGame() {
 
   function pick(d) {
     const correctText = d.o[d.a];
-    const shuffled = [...d.o].sort(() => Math.random() - 0.5);
+    const shuffled = [...d.o];
+    for (let i = shuffled.length - 1; i > 0; i--) {      // Fisher-Yates; a random
+      const j = Math.floor(Math.random() * (i + 1));     // sort comparator is biased
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
     setAns(null);
     setVerse(false);
     setSel({ ...d, o: shuffled, a: shuffled.indexOf(correctText) });
@@ -191,6 +209,17 @@ export default function NarayaniyamGame() {
           </p>
         </div>
         <button style={{...s.btnP,marginTop:12,padding:"15px 40px",fontSize:16}} onClick={()=>setScreen("about")}>Continue →</button>
+      </div>
+    </div>
+  );
+
+  // Every screen past the title needs the data. It is normally in hand well
+  // before anyone gets here, so this is a brief flash at worst.
+  if (screen !== "title" && screen !== "about" && !dasakams) return (
+    <div style={s.root}><div style={s.bg}/>
+      <div style={{...s.wrap,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",minHeight:"100vh",gap:14}}>
+        <div style={{fontSize:40,lineHeight:1,color:SAFFRON}}>ॐ</div>
+        <p style={{fontSize:14,color:"#a09080",margin:0}}>Loading the daśakams…</p>
       </div>
     </div>
   );

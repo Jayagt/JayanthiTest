@@ -40,7 +40,9 @@ def fetch(n):
 
 def tidy(text):
     text = re.sub(r'(?<=' + DEVANAGARI + r'):', 'ः', text)          # colon -> visarga
-    # the source is inconsistent: verse 12.3 closes "।३॥" with a single danda
+    # the source is inconsistent: verse 12.3 closes "।३॥" with a single danda,
+    # and verse 93.3 closes "॥३" with the final danda missing altogether
+    text = re.sub(r'[।॥]\s*([०-९]+)\s*$', lambda m: '॥' + m.group(1) + '॥', text.rstrip())
     text = re.sub(r'[।॥]\s*([०-९]+)\s*॥', lambda m: '॥' + m.group(1) + '॥', text)
     return re.sub(r'\s+', ' ', text).strip()
 
@@ -53,20 +55,25 @@ def verses(page):
         inner = html.unescape(re.sub(r'<[^>]+>', '', inner))
         if not re.search(DEVANAGARI, inner):
             continue
+        # Dasakam 100's second verse carries no marker at all on the page, so a
+        # marker cannot be required. Verse blocks are long; the closing
+        # invocation and other stray Devanagari are short.
         num = re.search(r'[।॥]\s*([०-९]+)\s*॥', inner)
-        if not num:
+        if not num and len(re.findall(DEVANAGARI, inner)) < 60:
             continue
         joined = ''
         for pada in (l.strip() for l in inner.split('\n') if l.strip()):
             joined = (joined[:-1] + pada) if joined.endswith('-') else \
                      ((joined + ' ' + pada) if joined else pada)
         printed = int(''.join(str('०१२३४५६७८९'.index(c))
-                              for c in num.group(1)))
+                              for c in num.group(1))) if num else None
         # Number by document order, not by the printed marker: Dasakam 40 gives
         # its sixth verse the marker ॥५॥, so trusting the marker silently drops
         # a verse. The marker is reported when it disagrees.
         seq = len(out) + 1
-        if printed != seq:
+        if printed is None:
+            print(f"  ! verse {seq} carries no marker in the source", file=sys.stderr)
+        elif printed != seq:
             print(f"  ! verse {seq} is marked \u0965{num.group(1)}\u0965 in the source",
                   file=sys.stderr)
         out[seq] = tidy(joined)
