@@ -65,7 +65,6 @@ const s = {
   btnP:{background:`linear-gradient(135deg,${SAFFRON},${G})`,color:"#fff",border:"none",borderRadius:12,padding:"13px 28px",fontSize:14,fontWeight:"bold",cursor:"pointer",fontFamily:"Georgia,serif",boxShadow:"0 4px 16px rgba(212,122,46,0.25)"},
   btnS:{background:"rgba(255,255,255,0.05)",color:G,border:`1px solid ${BO}`,borderRadius:12,padding:"11px 20px",fontSize:13,cursor:"pointer",fontFamily:"Georgia,serif"},
   row:{display:"flex",gap:10,flexWrap:"wrap",justifyContent:"center",margin:"4px 0"},
-  foot:{fontSize:12,color:"#7a7060",textAlign:"center",marginTop:12},
   back:{background:"transparent",color:G,border:`1px solid ${BO}`,borderRadius:8,padding:"7px 14px",fontSize:12,cursor:"pointer",fontFamily:"Georgia,serif",marginBottom:14},
   ptit:{fontSize:22,color:G,textAlign:"center",margin:"0 0 14px"},
   inp:{width:"100%",background:"#1a1a1a",border:`1px solid ${BO}`,borderRadius:10,padding:"9px 14px",color:"#e8e0d0",fontSize:13,fontFamily:"Georgia,serif",boxSizing:"border-box",marginBottom:10,outline:"none"},
@@ -91,7 +90,7 @@ const s = {
   rh:{fontSize:16,fontWeight:"bold",marginBottom:8},
   exp:{fontSize:"clamp(14px,3.7vw,15px)",color:"#c0b8a0",lineHeight:1.75,marginBottom:10},
   hi:{background:"#141414",border:"1px solid rgba(255,255,255,0.08)",borderRadius:9,padding:"10px 14px",display:"flex",flexDirection:"column",gap:3},
-  groupBtn:{background:"#141414",border:"1px solid rgba(255,255,255,0.1)",borderRadius:12,padding:"10px 12px",cursor:"pointer",fontFamily:"Georgia,serif",display:"flex",flexDirection:"column",alignItems:"center",gap:3,transition:"all 0.2s",boxShadow:"0 1px 4px rgba(0,0,0,0.3)"},
+  groupBtn:{background:"#272320",border:"1px solid rgba(255,255,255,0.22)",borderRadius:10,padding:"9px 4px",cursor:"pointer",fontFamily:"Georgia,serif",display:"flex",flexDirection:"column",alignItems:"center",gap:3,transition:"all 0.2s",boxShadow:"0 1px 4px rgba(0,0,0,0.3)"},
   groupBtnOpen:{background:"rgba(184,134,11,0.1)",border:`1px solid ${BO}`},
   listCard:{width:"100%",background:"#141414",border:"1px solid rgba(255,255,255,0.08)",borderRadius:8,padding:"9px 12px",cursor:"pointer",textAlign:"left",fontFamily:"Georgia,serif",color:"#e8e0d0",transition:"all 0.15s"},
   listCardDone:{background:"rgba(42,138,130,0.08)",borderColor:"rgba(42,138,130,0.2)"},
@@ -194,57 +193,27 @@ export default function NarayaniyamGame() {
   const acc = total > 0 ? Math.round(score/total*100) : 0;
 
   // TITLE
+  // LANDING — title and the note about the text in one screen, no second step.
   if (screen === "title") return (
     <div style={s.root}><div style={s.bg}/>
-      <div style={{...s.wrap,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",minHeight:"100vh",gap:13,paddingTop:20,paddingBottom:20}}>
-        <img src={guruvayurImg} alt="Guruvāyūrappan" style={{width:"min(clamp(230px,66vw,310px), 32vh)",borderRadius:14,boxShadow:"0 4px 30px rgba(212,122,46,0.2)",border:`3px solid ${BO}`}} />
-        <h1 style={{fontSize:"clamp(24px,6.4vw,29px)",fontWeight:"bold",textAlign:"center",color:G,margin:0,lineHeight:1.3}}>Śrīman Nārāyaṇīyam</h1>
-        <p style={{fontSize:"clamp(13px,3.6vw,15px)",color:"#b8a888",textAlign:"center",margin:0,fontStyle:"italic"}}>The Quintessence of Śrīmad Bhāgavatam</p>
-        <div style={{background:"rgba(212,122,46,0.06)",border:`1px solid ${BO}`,borderRadius:12,padding:"12px 16px",maxWidth:480,marginTop:2}}>
-          <p className="sanskrit" style={{fontSize:"clamp(13px,3.5vw,16px)",color:"#e8d8b0",lineHeight:1.85,margin:0,textAlign:"center"}}>
-            सान्द्रानन्दावबोधात्मकमनुपमितं कालदेशावधिभ्यां<br/>
-            निर्मुक्तं नित्यमुक्तं निगमशतसहस्रेण निर्भास्यमानम् ।<br/>
-            अस्पष्टं दृष्टमात्रे पुनरुरुपुरुषार्थात्मकं ब्रह्म तत्त्वं<br/>
-            तत्तावद्भाति साक्षाद् गुरुपवनपुरे हन्त भाग्यं जनानाम् ॥
-          </p>
-        </div>
-        <button style={{...s.btnP,marginTop:4,padding:"13px 36px",fontSize:15}} onClick={()=>setScreen("about")}>Continue →</button>
-      </div>
-    </div>
-  );
+      <div style={{...s.wrap,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",minHeight:"100vh",gap:11,paddingTop:20,paddingBottom:20}}>
+        <img src={guruvayurImg} alt="Guruvāyūrappan" style={{width:"min(clamp(210px,58vw,300px), 25vh)",borderRadius:14,boxShadow:"0 4px 30px rgba(212,122,46,0.2)",border:`3px solid ${BO}`}} />
+        <h1 style={{fontSize:"clamp(22px,5.8vw,27px)",fontWeight:"bold",textAlign:"center",color:G,margin:0,lineHeight:1.3}}>Śrīman Nārāyaṇīyam</h1>
+        <p style={{fontSize:"clamp(12.5px,3.4vw,14px)",color:"#b8a888",textAlign:"center",margin:0,fontStyle:"italic"}}>The Quintessence of Śrīmad Bhāgavatam</p>
 
-  // Every screen past the title needs the data. It is normally in hand well
-  // before anyone gets here, so this is a brief flash at worst.
-  if (screen !== "title" && screen !== "about" && !dasakams) return (
-    <div style={s.root}><div style={s.bg}/>
-      <div style={{...s.wrap,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",minHeight:"100vh",gap:14}}>
-        <div style={{fontSize:40,lineHeight:1,color:SAFFRON}}>ॐ</div>
-        <p style={{fontSize:14,color:"#a09080",margin:0}}>Loading the daśakams…</p>
-      </div>
-    </div>
-  );
-
-  // ABOUT THE BOOK (screen 2)
-  if (screen === "about") return (
-    <div style={s.root}><div style={s.bg}/>
-      <div style={{...s.wrap,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",minHeight:"100vh",gap:20,paddingTop:0}}>
-        <div style={{fontSize:48,lineHeight:1,color:SAFFRON}}>ॐ</div>
-        <h2 style={{fontSize:24,fontWeight:"bold",textAlign:"center",color:G,margin:0}}>About the Śrīman Nārāyaṇīyam</h2>
-        <div style={{background:"rgba(212,122,46,0.06)",border:`1px solid ${BO}`,borderRadius:14,padding:"22px",maxWidth:480}}>
-          <p style={{fontSize:14,color:"#e0d8c8",lineHeight:1.9,margin:"0 0 12px",textAlign:"center"}}>
+        <div style={{background:"rgba(212,122,46,0.06)",border:`1px solid ${BO}`,borderRadius:14,padding:"13px 15px",maxWidth:480,marginTop:2}}>
+          <p style={{fontSize:"clamp(11.5px,3vw,12.5px)",color:"#e0d8c8",lineHeight:1.65,margin:"0 0 8px",textAlign:"center"}}>
             Composed in 1586 CE by <span style={{color:SAFFRON,fontWeight:"bold"}}>Melapathur Nārāyaṇa Bhaṭṭathiri</span> at the temple of <span style={{color:SAFFRON,fontWeight:"bold"}}>Guruvāyūr</span> in Kerala, the Śrīman Nārāyaṇīyam condenses the 18,000 verses of the Śrīmad Bhāgavatam into <span style={{color:SAFFRON,fontWeight:"bold"}}>1,036 verses</span> across <span style={{color:SAFFRON,fontWeight:"bold"}}>100 Daśakams</span>.
           </p>
-          <p style={{fontSize:14,color:"#e0d8c8",lineHeight:1.9,margin:"0 0 12px",textAlign:"center"}}>
+          <p style={{fontSize:"clamp(11.5px,3vw,12.5px)",color:"#e0d8c8",lineHeight:1.65,margin:"0 0 8px",textAlign:"center"}}>
             Written as a prayer for healing while suffering from severe paralysis, it journeys from the Lord's cosmic nature through all His avatāras to the sweetness of Kṛṣṇa's līlās — a masterpiece of <span style={{fontStyle:"italic"}}>bhakti</span>, <span style={{fontStyle:"italic"}}>darśana</span> and <span style={{fontStyle:"italic"}}>kāvya</span>.
           </p>
-          <p style={{fontSize:13,color:"#b8a888",lineHeight:1.8,margin:0,textAlign:"center",fontStyle:"italic"}}>
+          <p style={{fontSize:"clamp(10.5px,2.8vw,11.5px)",color:"#b8a888",lineHeight:1.6,margin:0,textAlign:"center",fontStyle:"italic"}}>
             Tradition holds that when Bhaṭṭathiri completed the 100th Daśakam, the Lord of Guruvāyūr appeared before him and his disease was cured.
           </p>
         </div>
-        <div style={{display:"flex",gap:12}}>
-          <button style={s.btnS} onClick={()=>setScreen("title")}>← Back</button>
-          <button style={{...s.btnP,padding:"15px 40px",fontSize:16}} onClick={()=>setScreen("home")}>Begin the Quiz →</button>
-        </div>
+
+        <button style={{...s.btnP,marginTop:4,padding:"13px 36px",fontSize:15}} onClick={()=>setScreen("home")}>Begin the Quiz →</button>
       </div>
     </div>
   );
@@ -256,27 +225,27 @@ export default function NarayaniyamGame() {
     <div style={s.root}><div style={s.bg}/>
       <div style={{...s.wrap,display:"flex",flexDirection:"column",alignItems:"center",gap:14,paddingTop:40}}>
         <div style={{position:"absolute",top:16,left:16,right:16,display:"flex",justifyContent:"space-between"}}>
-          <button style={{fontSize:11,color:G,background:"transparent",border:`1px solid ${BO}`,borderRadius:8,padding:"5px 12px",cursor:"pointer",fontFamily:"Georgia,serif"}} onClick={()=>setScreen("about")}>← Back</button>
+          <button style={{fontSize:11,color:G,background:"transparent",border:`1px solid ${BO}`,borderRadius:8,padding:"5px 12px",cursor:"pointer",fontFamily:"Georgia,serif"}} onClick={()=>setScreen("title")}>← Back</button>
           <button onClick={toggleFullScreen} style={{fontSize:11,color:G,background:"transparent",border:`1px solid ${BO}`,borderRadius:8,padding:"5px 12px",cursor:"pointer",fontFamily:"Georgia,serif"}}>⛶ Full Screen</button>
         </div>
         <div style={s.om}>ॐ</div>
         <h1 style={s.h1}>Śrīman Nārāyaṇīyam</h1>
         <p style={{...s.ptit,fontSize:18,marginBottom:2,marginTop:12}}>Choose a Daśakam Group</p>
-        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(150px,1fr))",gap:8,width:"100%"}}>
+        <div style={{display:"grid",gridTemplateColumns:"repeat(5,1fr)",gap:7,width:"100%"}}>
           {groupRanges.map((r,ri) => {
             const [lo,hi] = r.split("-").map(Number);
             const group = ALL.filter(d => d.n >= lo && d.n <= hi);
             const doneCount = group.filter(d => done.has(d.qid)).length;
             // Colour says how far through the group you are, rather than which
             // group it happens to be: untouched, started, finished.
-            const tone = doneCount === 0 ? "#7d746a" : doneCount === group.length ? TEAL : G;
+            const tone = doneCount === 0 ? "#d2c6ae" : doneCount === group.length ? TEAL : G;
             return (
               <button key={r} style={{...s.groupBtn,borderColor:doneCount===group.length?"rgba(58,184,168,0.28)":"rgba(255,255,255,0.1)"}} onClick={()=>{setFilter(r);setScreen("group")}}>
-                <span style={{fontSize:13,fontWeight:"bold",color:tone}}>{r}</span>
-                <div style={{width:"100%",height:3,borderRadius:2,background:"rgba(255,255,255,0.1)",overflow:"hidden"}}>
+                <span style={{fontSize:"clamp(11px,2.9vw,13px)",fontWeight:"bold",color:tone,whiteSpace:"nowrap"}}>{r}</span>
+                <div style={{width:"100%",height:3,borderRadius:2,background:"rgba(255,255,255,0.14)",overflow:"hidden"}}>
                   <div style={{width:`${doneCount/group.length*100}%`,height:"100%",borderRadius:2,background:tone,opacity:0.65,transition:"width 0.3s"}}/>
                 </div>
-                <span style={{fontSize:9,color:"#8a8378"}}>{doneCount}/{group.length}</span>
+                <span style={{fontSize:9.5,color:"#aaa094"}}>{doneCount}/{group.length}</span>
               </button>
             );
           })}
@@ -287,11 +256,10 @@ export default function NarayaniyamGame() {
           ))}
         </div>
         <div style={{display:"flex",gap:10,flexWrap:"wrap",justifyContent:"center"}}>
-          <button style={s.btnS} onClick={rand}>🎲 Random</button>
+          <button style={s.btnS} onClick={rand}>Random</button>
           {hist.length>0 && <button style={s.btnS} onClick={()=>setScreen("hist")}>View History</button>}
           {total>0 && <button style={{...s.btnS,fontSize:11,color:"#c0a0b0",border:"1px solid rgba(160,100,130,0.3)",padding:"8px 16px"}} onClick={()=>{ if(window.confirm("Reset all scores and history?")){ setScore(0);setTotal(0);setStreak(0);setDone(new Set());setHist([]); ["nm_score","nm_total","nm_streak","nm_done","nm_hist"].forEach(k=>localStorage.removeItem(k)); } }}>Reset Progress</button>}
         </div>
-        <p style={s.foot}>Guruvāyūrappan Śaraṇam 🙏</p>
       </div>
     </div>
     );
@@ -330,8 +298,8 @@ export default function NarayaniyamGame() {
       <div style={{...s.wrap,maxWidth:960}}>
         <button style={s.back} onClick={()=>setScreen("home")}>← Back</button>
 
-        <div style={{marginBottom:18}}>
-          <div style={{display:"flex",justifyContent:"space-between",alignItems:"baseline",gap:12,marginBottom:8}}>
+        <div style={{marginBottom:13}}>
+          <div style={{display:"flex",justifyContent:"space-between",alignItems:"baseline",gap:12,marginBottom:7}}>
             <p style={{...s.ptit,fontSize:"clamp(19px,5vw,22px)",margin:0,color:G}}>Daśakams {filter}</p>
             <span style={{fontSize:12,color:"#8a8378",whiteSpace:"nowrap"}}>{doneCount} of {group.length} questions</span>
           </div>
@@ -531,7 +499,7 @@ export default function NarayaniyamGame() {
               <div style={{display:"flex",gap:8,flexWrap:"wrap"}}>
                 <button style={s.btnP} onClick={cont}>↺ Try Again</button>
                 <button style={s.btnP} onClick={next}>Next →</button>
-                <button style={s.btnS} onClick={rand}>🎲</button>
+                <button style={s.btnS} onClick={rand}>Random</button>
                 <button style={s.btnS} onClick={()=>setScreen("home")}>≡</button>
               </div>
             </div>
